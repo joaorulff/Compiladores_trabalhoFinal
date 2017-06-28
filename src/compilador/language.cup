@@ -1,0 +1,41 @@
+package compilador;
+
+import java_cup.runtime.*;
+import java.io.FileReader;
+
+
+parser code
+{:
+    // Funções chamadas em erros ///////////////////////////////////////////////////////////////////////////
+    public void syntax_error(Symbol s){ 
+        System.out.println("\nOcorreu um erro na linha " + (s.right) +", coluna "+s.left+ ". Identificador "
+        +s.value + " não reconhecido." );
+    }
+
+    public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{
+        System.out.println("\nOcorreu um erro na linha " + (s.right)+ ", coluna "+s.left+". Identificador " +
+        s.value + " não reconhecido.");
+    }
+    
+:}
+
+terminal SUM, MINUS, MULTIPLICATION, DIVISION;
+terminal ID, INTEGER;
+terminal OPEN, CLOSE, EQUAL, ENDSTMT, COMMA, GREATERTHAN, LESSTHAN, EQUALITY;
+terminal DEF, IF, ELSE, THEN, TRUE, FALSE;
+
+
+non terminal P, I, D, ARGS, SEQ, E, A, T, ARGSLINE, SEQLINE, ELINE;
+
+start with P;
+
+P ::= E:expr SUM E EQUAL E
+	{:
+		System.out.println("expr");
+		System.out.println("REGRA E SUM EQUAl E");
+	:};
+
+E ::= INTEGER
+	{:
+		System.out.println("REGRA INTEGER");
+	:};
