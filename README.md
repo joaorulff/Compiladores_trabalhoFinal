@@ -1,6 +1,6 @@
-#Trabalho da disciplina de Compiladores
+# Trabalho da disciplina de Compiladores
 
-##Compilador para a seguinte gramática:
+## Compilador para a seguinte gramática:
 ```
     P → id '=' int ; P | I
     I → D ';' I | D
@@ -11,7 +11,7 @@
     | E opArit E | id'(' SEQ ')'
 ```
 
-##Exemplo de código:
+## Exemplo de código:
 ```
     a = 312;
     b = 111;
@@ -23,12 +23,12 @@
         else mod(a-b,b)
 ```
 
-###Como gerar o analisador léxico:
+### Como gerar o analisador léxico:
 ```
     java -jar jflex-1.6.1.jar src/compilador/language.lex
 ```
 
-###Como gerar o analisador sintático:
+### Como gerar o analisador sintático:
 ```
     java -jar java-cup-11a.jar -parser Parser -symbols Sym src/compilador/language.cup
 ```
