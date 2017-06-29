@@ -6,16 +6,15 @@ import java.io.StringReader;
 import java.nio.file.Paths;
 
 public class KowadaLang {
-	
-	
-	public static void main(String[] args) throws IOException {
-		
-		String rootPath = Paths.get("").toAbsolutePath().toString();
-		String subPath = "/src/compilador/";
-		
-		String sourceCode = rootPath + subPath + "program.txt";
-		
-		try {
+
+    public static void main(String[] args) throws IOException {
+
+        String rootPath = Paths.get("").toAbsolutePath().toString();
+        String subPath = "/src/compilador/";
+
+        String sourceCode = rootPath + subPath + "program.txt";
+
+        try {
             Parser p = new Parser(new Lexer(new FileReader(sourceCode)));
             Object result = p.parse().value;
 
@@ -23,7 +22,7 @@ public class KowadaLang {
         } catch (Exception e) {
             e.printStackTrace();
         }
-		
-	}
+
+    }
 
 }
