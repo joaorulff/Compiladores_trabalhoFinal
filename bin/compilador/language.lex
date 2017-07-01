@@ -45,32 +45,34 @@ TRUE = "true"
 FALSE = "false"
 
 %%
-{DEF}						 { imprimir("function def", 			yytext()); return new Symbol(Sym.DEF);}	
-{IF}                         { imprimir("if statement", 			yytext()); return new Symbol(Sym.IF);}
-{ELSE}						 { imprimir("else statement", 			yytext()); return new Symbol(Sym.ELSE);}
-{THEN}                       { imprimir("then statement", 			yytext()); return new Symbol(Sym.THEN);}
-{TRUE}						 { imprimir("false variable", 			yytext()); return new Symbol(Sym.TRUE);}	
-{FALSE}                      { imprimir("true variable", 			yytext()); return new Symbol(Sym.FALSE);}
+{DEF}						 { imprimir("function def", 			yytext()); return new Symbol(Sym.DEF, new Token( yytext() ));}	
+{IF}                         { imprimir("if statement", 			yytext()); return new Symbol(Sym.IF, new Token( yytext() ));}
+{ELSE}						 { imprimir("else statement", 			yytext()); return new Symbol(Sym.ELSE, new Token( yytext() ));}
+{THEN}                       { imprimir("then statement", 			yytext()); return new Symbol(Sym.THEN, new Token( yytext() ));}
 
-{SUM}                        { imprimir("sum operator", 			yytext()); return new Symbol(Sym.SUM);}
-{MINUS}                      { imprimir("minus operator", 			yytext()); return new Symbol(Sym.MINUS);}
-{MULTIPLICATION}             { imprimir("multiplication operator", 	yytext()); return new Symbol(Sym.MULTIPLICATION);}
-{DIVISION}                   { imprimir("division operator", 		yytext()); return new Symbol(Sym.DIVISION);}
+{SUM}                        { imprimir("sum operator", 			yytext()); return new Symbol(Sym.SUM, new Token( yytext() ));}
+{MINUS}                      { imprimir("minus operator", 			yytext()); return new Symbol(Sym.MINUS, new Token( yytext() ));}
+{MULTIPLICATION}             { imprimir("multiplication operator", 	yytext()); return new Symbol(Sym.MULTIPLICATION, new Token( yytext() ));}
+{DIVISION}                   { imprimir("division operator", 		yytext()); return new Symbol(Sym.DIVISION, new Token( yytext() ));}
 
-{OPEN}						 { imprimir("open parenthesis",			yytext()); return new Symbol(Sym.OPEN);}
-{CLOSE}					 	 { imprimir("close parenthesis",		yytext()); return new Symbol(Sym.CLOSE);}
-{EQUAL}						 { imprimir("equal sign",				yytext()); return new Symbol(Sym.EQUAL);}
-{ENDSTATEMENT}				 { imprimir("end-statement sign",		yytext()); return new Symbol(Sym.ENDSTMT);}
-{COMMA}						 { imprimir("comma sign",				yytext()); return new Symbol(Sym.COMMA);}
-{GREATERTHAN}				 { imprimir("greater than",				yytext()); return new Symbol(Sym.GREATERTHAN);}
-{LESSTHAN}					 { imprimir("less than",				yytext()); return new Symbol(Sym.LESSTHAN);}
-{EQUALITY}					 { imprimir("equality",					yytext()); return new Symbol(Sym.EQUALITY);}
+{OPEN}						 { imprimir("open parenthesis",			yytext()); return new Symbol(Sym.OPEN, new Token( yytext() ));}
+{CLOSE}					 	 { imprimir("close parenthesis",		yytext()); return new Symbol(Sym.CLOSE, new Token( yytext() ));}
+{EQUAL}						 { imprimir("equal sign",				yytext()); return new Symbol(Sym.EQUAL, new Token( yytext() ));}
+{ENDSTATEMENT}				 { imprimir("end-statement sign",		yytext()); return new Symbol(Sym.ENDSTMT, new Token( yytext() ));}
+{COMMA}						 { imprimir("comma sign",				yytext()); return new Symbol(Sym.COMMA, new Token( yytext() ));}
+{GREATERTHAN}				 { imprimir("greater than",				yytext()); return new Symbol(Sym.GREATERTHAN, new Token( yytext() ));}
+{LESSTHAN}					 { imprimir("less than",				yytext()); return new Symbol(Sym.LESSTHAN, new Token( yytext() ));}
 
-{BLANK}                      { 	}
-{ID}                         { imprimir("identificator", 			yytext()); return new Symbol(Sym.ID); }
-{INTEGER}                    { imprimir("integer", 					yytext()); return new Symbol(Sym.INTEGER);}
+{BLANK}                      {  }
+{ID}                         { imprimir("identificator", 			yytext()); return new Symbol(Sym.ID, new Token( yytext() )); }
+{INTEGER}                    { imprimir("integer", 					yytext()); return new Symbol(Sym.INTEGER, new Token( yytext() ) );}
 
 
-
-
-. { throw new RuntimeException("Caractere inválido " + yytext()); }
+. { throw new RuntimeException("Caractere inválido " + yytext() ); }
+ 
+ 
+ 
+ 
+ 
+ 
+ 

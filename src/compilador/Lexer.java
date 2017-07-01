@@ -34,14 +34,14 @@ public class Lexer implements java_cup.runtime.Scanner {
    * Translates characters to character classes
    */
   private static final String ZZ_CMAP_PACKED = 
-    "\11\0\1\1\1\1\1\37\1\37\1\1\22\0\1\1\7\0\1\12"+
+    "\11\0\1\1\1\1\1\34\1\34\1\1\22\0\1\1\7\0\1\12"+
     "\1\13\1\10\1\6\1\16\1\7\1\0\1\11\1\5\11\4\1\0"+
-    "\1\15\1\20\1\14\1\17\2\0\1\36\2\2\1\21\1\22\1\23"+
-    "\1\2\1\32\1\25\2\2\1\26\1\2\1\33\3\2\1\34\1\30"+
-    "\1\31\1\35\5\2\4\0\1\2\1\0\1\36\2\2\1\21\1\22"+
-    "\1\23\1\2\1\32\1\25\2\2\1\26\1\2\1\33\3\2\1\34"+
-    "\1\30\1\31\1\35\5\2\1\0\1\3\10\0\1\37\252\0\2\24"+
-    "\115\0\1\27\u1ea8\0\1\37\1\37\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
+    "\1\15\1\20\1\14\1\17\2\0\1\2\2\2\1\21\1\22\1\23"+
+    "\1\2\1\32\1\25\2\2\1\26\1\2\1\33\3\2\1\2\1\30"+
+    "\1\31\1\2\5\2\4\0\1\2\1\0\1\2\2\2\1\21\1\22"+
+    "\1\23\1\2\1\32\1\25\2\2\1\26\1\2\1\33\3\2\1\2"+
+    "\1\30\1\31\1\2\5\2\1\0\1\3\10\0\1\34\252\0\2\24"+
+    "\115\0\1\27\u1ea8\0\1\34\1\34\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
 
   /** 
    * Translates characters to character classes
@@ -56,12 +56,11 @@ public class Lexer implements java_cup.runtime.Scanner {
   private static final String ZZ_ACTION_PACKED_0 =
     "\1\0\1\1\1\2\1\3\1\2\2\4\1\5\1\6"+
     "\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16"+
-    "\1\17\3\3\1\1\2\3\1\20\3\3\2\21\2\3"+
-    "\1\22\1\0\4\3\2\23\1\0\1\3\1\24\1\25"+
-    "\2\26";
+    "\1\17\2\3\1\1\4\3\2\20\1\3\1\21\1\0"+
+    "\2\3\2\22\1\23";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[46];
+    int [] result = new int[35];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -86,15 +85,14 @@ public class Lexer implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\40\0\40\0\100\0\100\0\140\0\40\0\40"+
-    "\0\40\0\40\0\40\0\40\0\40\0\200\0\40\0\40"+
-    "\0\40\0\40\0\240\0\300\0\340\0\u0100\0\u0120\0\u0140"+
-    "\0\40\0\u0160\0\u0180\0\u01a0\0\40\0\100\0\u01c0\0\u01e0"+
-    "\0\100\0\u0200\0\u0220\0\u0240\0\u0260\0\u0280\0\40\0\100"+
-    "\0\u02a0\0\u02c0\0\100\0\100\0\40\0\100";
+    "\0\0\0\35\0\35\0\72\0\72\0\127\0\35\0\35"+
+    "\0\35\0\35\0\35\0\35\0\35\0\35\0\35\0\35"+
+    "\0\35\0\35\0\164\0\221\0\256\0\313\0\350\0\u0105"+
+    "\0\u0122\0\35\0\72\0\u013f\0\72\0\u015c\0\u0179\0\u0196"+
+    "\0\35\0\72\0\72";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[46];
+    int [] result = new int[35];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -119,31 +117,23 @@ public class Lexer implements java_cup.runtime.Scanner {
   private static final String ZZ_TRANS_PACKED_0 =
     "\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11"+
     "\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21"+
-    "\1\22\1\23\1\24\1\25\1\26\1\27\1\4\1\2"+
-    "\1\4\1\30\5\4\43\0\4\4\13\0\3\4\1\0"+
-    "\2\4\1\0\7\4\5\0\2\6\46\0\1\31\25\0"+
-    "\4\4\13\0\1\4\1\32\1\4\1\0\2\4\1\0"+
-    "\7\4\3\0\4\4\13\0\3\4\1\0\1\4\1\33"+
-    "\1\0\7\4\3\0\4\4\13\0\3\4\1\0\2\4"+
-    "\1\0\6\4\1\34\24\0\1\35\16\0\4\4\13\0"+
-    "\2\4\1\36\1\0\2\4\1\0\7\4\3\0\4\4"+
-    "\13\0\3\4\1\0\2\4\1\0\2\4\1\37\1\4"+
-    "\1\40\2\4\3\0\4\4\13\0\2\4\1\41\1\0"+
-    "\2\4\1\0\7\4\3\0\4\4\13\0\3\4\1\0"+
-    "\2\4\1\42\1\43\6\4\3\0\4\4\13\0\3\4"+
-    "\1\0\1\4\1\44\1\0\7\4\3\0\4\4\13\0"+
-    "\1\4\1\45\1\4\1\0\2\4\1\0\7\4\3\0"+
-    "\4\4\13\0\3\4\1\0\2\4\1\0\5\4\1\46"+
-    "\1\4\23\0\1\47\17\0\4\4\13\0\1\4\1\50"+
-    "\1\4\1\0\2\4\1\0\7\4\3\0\4\4\13\0"+
-    "\3\4\1\0\2\4\1\51\1\52\6\4\3\0\4\4"+
-    "\13\0\3\4\1\0\2\4\1\0\3\4\1\53\3\4"+
-    "\3\0\4\4\13\0\1\4\1\54\1\4\1\0\2\4"+
-    "\1\0\7\4\23\0\1\55\17\0\4\4\13\0\1\4"+
-    "\1\56\1\4\1\0\2\4\1\0\7\4\1\0";
+    "\1\22\1\23\1\24\1\4\1\25\1\26\1\4\1\2"+
+    "\1\4\1\27\2\4\40\0\4\4\13\0\3\4\1\0"+
+    "\2\4\1\0\4\4\5\0\2\6\31\0\4\4\13\0"+
+    "\1\4\1\30\1\4\1\0\2\4\1\0\4\4\3\0"+
+    "\4\4\13\0\3\4\1\0\1\4\1\31\1\0\4\4"+
+    "\24\0\1\32\13\0\4\4\13\0\2\4\1\33\1\0"+
+    "\2\4\1\0\4\4\3\0\4\4\13\0\3\4\1\0"+
+    "\2\4\1\0\2\4\1\34\1\4\3\0\4\4\13\0"+
+    "\2\4\1\35\1\0\2\4\1\0\4\4\3\0\4\4"+
+    "\13\0\3\4\1\0\2\4\1\36\1\37\3\4\3\0"+
+    "\4\4\13\0\1\4\1\40\1\4\1\0\2\4\1\0"+
+    "\4\4\23\0\1\41\14\0\4\4\13\0\1\4\1\42"+
+    "\1\4\1\0\2\4\1\0\4\4\3\0\4\4\13\0"+
+    "\3\4\1\0\2\4\1\0\3\4\1\43\1\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[736];
+    int [] result = new int[435];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -181,12 +171,11 @@ public class Lexer implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\2\11\3\1\7\11\1\1\4\11\6\1\1\11"+
-    "\3\1\1\11\4\1\1\0\4\1\1\11\1\1\1\0"+
-    "\3\1\1\11\1\1";
+    "\1\0\2\11\3\1\14\11\7\1\1\11\3\1\1\0"+
+    "\2\1\1\11\2\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[46];
+    int [] result = new int[35];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -653,93 +642,81 @@ private void imprimir(String descricao, String lexema) {
       else {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1: 
-            { throw new RuntimeException("Caractere inválido " + yytext());
+            { throw new RuntimeException("Caractere inválido " + yytext() );
             }
-          case 23: break;
+          case 20: break;
           case 2: 
             { 
             }
-          case 24: break;
+          case 21: break;
           case 3: 
-            { imprimir("identificator", 			yytext()); return new Symbol(Sym.ID);
+            { imprimir("identificator", 			yytext()); return new Symbol(Sym.ID, new Token( yytext() ));
+            }
+          case 22: break;
+          case 4: 
+            { imprimir("integer", 					yytext()); return new Symbol(Sym.INTEGER, new Token( yytext() ) );
+            }
+          case 23: break;
+          case 5: 
+            { imprimir("sum operator", 			yytext()); return new Symbol(Sym.SUM, new Token( yytext() ));
+            }
+          case 24: break;
+          case 6: 
+            { imprimir("minus operator", 			yytext()); return new Symbol(Sym.MINUS, new Token( yytext() ));
             }
           case 25: break;
-          case 4: 
-            { imprimir("integer", 					yytext()); return new Symbol(Sym.INTEGER);
+          case 7: 
+            { imprimir("multiplication operator", 	yytext()); return new Symbol(Sym.MULTIPLICATION, new Token( yytext() ));
             }
           case 26: break;
-          case 5: 
-            { imprimir("sum operator", 			yytext()); return new Symbol(Sym.SUM);
+          case 8: 
+            { imprimir("division operator", 		yytext()); return new Symbol(Sym.DIVISION, new Token( yytext() ));
             }
           case 27: break;
-          case 6: 
-            { imprimir("minus operator", 			yytext()); return new Symbol(Sym.MINUS);
+          case 9: 
+            { imprimir("open parenthesis",			yytext()); return new Symbol(Sym.OPEN, new Token( yytext() ));
             }
           case 28: break;
-          case 7: 
-            { imprimir("multiplication operator", 	yytext()); return new Symbol(Sym.MULTIPLICATION);
+          case 10: 
+            { imprimir("close parenthesis",		yytext()); return new Symbol(Sym.CLOSE, new Token( yytext() ));
             }
           case 29: break;
-          case 8: 
-            { imprimir("division operator", 		yytext()); return new Symbol(Sym.DIVISION);
+          case 11: 
+            { imprimir("equal sign",				yytext()); return new Symbol(Sym.EQUAL, new Token( yytext() ));
             }
           case 30: break;
-          case 9: 
-            { imprimir("open parenthesis",			yytext()); return new Symbol(Sym.OPEN);
+          case 12: 
+            { imprimir("end-statement sign",		yytext()); return new Symbol(Sym.ENDSTMT, new Token( yytext() ));
             }
           case 31: break;
-          case 10: 
-            { imprimir("close parenthesis",		yytext()); return new Symbol(Sym.CLOSE);
+          case 13: 
+            { imprimir("comma sign",				yytext()); return new Symbol(Sym.COMMA, new Token( yytext() ));
             }
           case 32: break;
-          case 11: 
-            { imprimir("equal sign",				yytext()); return new Symbol(Sym.EQUAL);
+          case 14: 
+            { imprimir("greater than",				yytext()); return new Symbol(Sym.GREATERTHAN, new Token( yytext() ));
             }
           case 33: break;
-          case 12: 
-            { imprimir("end-statement sign",		yytext()); return new Symbol(Sym.ENDSTMT);
+          case 15: 
+            { imprimir("less than",				yytext()); return new Symbol(Sym.LESSTHAN, new Token( yytext() ));
             }
           case 34: break;
-          case 13: 
-            { imprimir("comma sign",				yytext()); return new Symbol(Sym.COMMA);
+          case 16: 
+            { imprimir("if statement", 			yytext()); return new Symbol(Sym.IF, new Token( yytext() ));
             }
           case 35: break;
-          case 14: 
-            { imprimir("greater than",				yytext()); return new Symbol(Sym.GREATERTHAN);
+          case 17: 
+            { imprimir("function def", 			yytext()); return new Symbol(Sym.DEF, new Token( yytext() ));
             }
           case 36: break;
-          case 15: 
-            { imprimir("less than",				yytext()); return new Symbol(Sym.LESSTHAN);
+          case 18: 
+            { imprimir("else statement", 			yytext()); return new Symbol(Sym.ELSE, new Token( yytext() ));
             }
           case 37: break;
-          case 16: 
-            { imprimir("equality",					yytext()); return new Symbol(Sym.EQUALITY);
+          case 19: 
+            { imprimir("then statement", 			yytext()); return new Symbol(Sym.THEN, new Token( yytext() ));
             }
           case 38: break;
-          case 17: 
-            { imprimir("if statement", 			yytext()); return new Symbol(Sym.IF);
-            }
-          case 39: break;
-          case 18: 
-            { imprimir("function def", 			yytext()); return new Symbol(Sym.DEF);
-            }
-          case 40: break;
-          case 19: 
-            { imprimir("else statement", 			yytext()); return new Symbol(Sym.ELSE);
-            }
-          case 41: break;
-          case 20: 
-            { imprimir("then statement", 			yytext()); return new Symbol(Sym.THEN);
-            }
-          case 42: break;
-          case 21: 
-            { imprimir("false variable", 			yytext()); return new Symbol(Sym.TRUE);
-            }
-          case 43: break;
-          case 22: 
-            { imprimir("true variable", 			yytext()); return new Symbol(Sym.FALSE);
-            }
-          case 44: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }

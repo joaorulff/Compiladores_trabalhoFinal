@@ -63,7 +63,7 @@ FALSE = "false"
 {LESSTHAN}					 { imprimir("less than",				yytext());}
 {EQUALITY}					 { imprimir("equality",					yytext());}
 
-{BLANK}                      { 	}
+{BLANK}                      { }
 {ID}                         { imprimir("identificator", 			yytext());}
 {INTEGER}                    { imprimir("integer", 					yytext());}
 

@@ -18,10 +18,14 @@ public class KowadaLang {
         	
             Parser p = new Parser(new Lexer(new FileReader(sourceCode)));
             Object result = p.parse().value;
+            
+            System.out.println(result);
+            
+            
         	
 //        	Lexer lexer = new Lexer(new FileReader(sourceCode));
 //        	lexer.yylex();
-        	
+            	
 
             System.out.println("Compilacao concluida com sucesso...");
         } catch (Exception e) {
