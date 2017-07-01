@@ -1,4 +1,9 @@
 a = 312;
 b = 111;
 def mdc(a,b) = 123;
-;def mod(a,b) = 123;
+def mod(a,b) = 123;
+def mod(a,b) = 123;
+def mod(a,b) = 123;
+def mod(a,b) = 123;
+def mod(a,b) = 123;
+def mod(a,b) = 123;

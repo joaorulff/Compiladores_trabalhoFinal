@@ -28,7 +28,7 @@ P ::= ID EQUAL INTEGER ENDSTMT P
 	
 I ::= D I2;
 
-I2 ::= ENDSTMT I | ;
+I2 ::= I | ;
 
 D ::= DEF ID OPEN ARGS CLOSE EQUAL E ENDSTMT;
 
