@@ -24,7 +24,7 @@ terminal ID, INTEGER;
 terminal OPEN, CLOSE, EQUAL, ENDSTMT, COMMA, GREATERTHAN, LESSTHAN, EQUALITY;
 terminal DEF, IF, ELSE, THEN, TRUE, FALSE;
 
-non terminal P, I, D, ARGS, SEQ, E, E2, E3, A, T, T2, F, OPREL, OPARIT, ARGS2, SEQ2, ADDOP, MULTOP;
+non terminal P, I, I2, D, ARGS, SEQ, E, E2, E3, A, T, T2, F, OPREL, OPARIT, ARGS2, SEQ2, ADDOP, MULTOP;
 
 
 start with P;
@@ -39,13 +39,17 @@ P ::= 	ID EQUAL INTEGER ENDSTMT P
 		System.out.println("P ::= I");
 	:};
 	
-I ::=	D ENDSTMT I
+I ::=	D ENDSTMT I2
 	{:
 		System.out.println("I ::= D ENDSTMT I");
-	:}
-| 		D
+	:};
+I2 ::= ENDSTMT I
 	{:
-		System.out.println("I ::= D");
+		System.out.println("I2 ::= ENDSTMT I");
+	:}
+| 
+	{:
+		System.out.println("I2 ::= &");
 	:};
 
 D ::= DEF ID OPEN ARGS CLOSE EQUAL E ENDSTMT
@@ -125,12 +129,12 @@ ADDOP ::= SUM
 		System.out.println("ADDOP ::= MINUS");
 	:};
 	
-T ::= F T2
+T ::= E2 T2
 	{:
 		System.out.println("T ::= F T2");
 	:};
 
-T2 ::= MULTOP F T2
+T2 ::= MULTOP E2 T2
 	{:
 		System.out.println("T2 ::= MULTOP F T2");
 	:}
@@ -146,10 +150,6 @@ MULTOP ::= MULTIPLICATION
 |	DIVISION
 	{:
 		System.out.println("MULTOP ::= DIVISION");
-	:};
-F ::= OPEN E CLOSE
-	{:
-		System.out.println("F ::= OPEN E CLOSE");
 	:};
 
 OPREL ::= EQUALITY
