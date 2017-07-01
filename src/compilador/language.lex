@@ -45,9 +45,12 @@ TRUE = "true"
 FALSE = "false"
 
 %%
-{BLANK}                      { 	}
-{ID}                         { imprimir("identificator", 			yytext()); return new Symbol(Sym.ID); }
-{INTEGER}                    { imprimir("integer", 					yytext()); return new Symbol(Sym.INTEGER);}
+{DEF}						 { imprimir("function def", 			yytext()); return new Symbol(Sym.DEF);}	
+{IF}                         { imprimir("if statement", 			yytext()); return new Symbol(Sym.IF);}
+{ELSE}						 { imprimir("else statement", 			yytext()); return new Symbol(Sym.ELSE);}
+{THEN}                       { imprimir("then statement", 			yytext()); return new Symbol(Sym.THEN);}
+{TRUE}						 { imprimir("false variable", 			yytext()); return new Symbol(Sym.TRUE);}	
+{FALSE}                      { imprimir("true variable", 			yytext()); return new Symbol(Sym.FALSE);}
 
 {SUM}                        { imprimir("sum operator", 			yytext()); return new Symbol(Sym.SUM);}
 {MINUS}                      { imprimir("minus operator", 			yytext()); return new Symbol(Sym.MINUS);}
@@ -63,12 +66,11 @@ FALSE = "false"
 {LESSTHAN}					 { imprimir("less than",				yytext()); return new Symbol(Sym.LESSTHAN);}
 {EQUALITY}					 { imprimir("equality",					yytext()); return new Symbol(Sym.EQUALITY);}
 
-{DEF}						 { imprimir("function def", 			yytext()); return new Symbol(Sym.DEF);}	
-{IF}                         { imprimir("if statement", 			yytext()); return new Symbol(Sym.IF);}
-{ELSE}						 { imprimir("else statement", 			yytext()); return new Symbol(Sym.ELSE);}
-{THEN}                       { imprimir("then statement", 			yytext()); return new Symbol(Sym.THEN);}
-{TRUE}						 { imprimir("false variable", 			yytext()); return new Symbol(Sym.TRUE);}	
-{FALSE}                      { imprimir("true variable", 			yytext()); return new Symbol(Sym.FALSE);}
+{BLANK}                      { 	}
+{ID}                         { imprimir("identificator", 			yytext()); return new Symbol(Sym.ID); }
+{INTEGER}                    { imprimir("integer", 					yytext()); return new Symbol(Sym.INTEGER);}
+
+
 
 
 . { throw new RuntimeException("Caractere inválido " + yytext()); }

@@ -15,8 +15,13 @@ public class KowadaLang {
         String sourceCode = rootPath + subPath + "program.txt";
 
         try {
+        	
             Parser p = new Parser(new Lexer(new FileReader(sourceCode)));
             Object result = p.parse().value;
+        	
+//        	Lexer lexer = new Lexer(new FileReader(sourceCode));
+//        	lexer.yylex();
+        	
 
             System.out.println("Compilacao concluida com sucesso...");
         } catch (Exception e) {

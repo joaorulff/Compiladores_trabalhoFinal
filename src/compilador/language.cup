@@ -24,18 +24,84 @@ terminal ID, INTEGER;
 terminal OPEN, CLOSE, EQUAL, ENDSTMT, COMMA, GREATERTHAN, LESSTHAN, EQUALITY;
 terminal DEF, IF, ELSE, THEN, TRUE, FALSE;
 
+non terminal P, I, D, ARGS, SEQ, E, A, T, OPREL, OPARIT;
 
-non terminal P, I, D, ARGS, SEQ, E, A, T, ARGSLINE, SEQLINE, ELINE;
+precedence right SUM;
 
 start with P;
 
-P ::= E:expr SUM E EQUAL E
+P ::= 	ID EQUAL INTEGER ENDSTMT P
 	{:
-		System.out.println("expr");
-		System.out.println("REGRA E SUM EQUAl E");
+		System.out.println("P ::= ID EQUAL INTEGER ENDSTMT P");
+	:}
+	
+|		I
+	{:
+		System.out.println("P ::= I");
+	:};
+	
+I ::=	D ENDSTMT I
+	{:
+		System.out.println("I ::= D ENDSTMT I");
+	:}
+| 		D
+	{:
+		System.out.println("I ::= D");
 	:};
 
+D ::= DEF ID OPEN ARGS CLOSE EQUAL E ENDSTMT
+	{:
+		System.out.println("D ::= DEF ID OPEN ARGS CLOSE EQUAL E ENDSTMT");
+	:};
+	
+ARGS ::= ID COMMA ARGS
+	{:
+		System.out.println("ARGS ::= ID COMMA ARGS");
+	:}
+	
+|	ID
+	{:
+		System.out.println("ARGS ::= ID");
+	:};
+	
+SEQ ::= E
+	{:
+		System.out.println("SEQ ::= E");
+	:}
+| SEQ COMMA E
+	{:
+		System.out.println("SEQ COMMA E");
+	:};
+	
 E ::= INTEGER
 	{:
-		System.out.println("REGRA INTEGER");
+		System.out.println("E ::= INTEGER");
+	:}
+|	ID
+	{:
+		System.out.println("E ::= ID");
+	:}
+| IF E OPREL E THEN E ELSE E
+	{:
+		System.out.println("E ::= IF E OPREL E THEN E ELSE E");
+	:}
+| E OPARIT E
+	{:
+		System.out.println("E ::= E OPARIT E");
+	:}
+| ID OPEN SEQ CLOSE
+	{:
+		System.out.println("E ::= ID OPEN SEQ CLOSE");
 	:};
+
+OPARIT ::= SUM
+	{:
+		System.out.println("OPARIT ::= SUM");
+	:};
+
+OPREL ::= EQUALITY
+	{:
+		System.out.println("OPREL ::= SUM");
+	:};
+	
+	
