@@ -38,16 +38,12 @@ DEF = "def"
 IF = "if"
 ELSE = "else"
 THEN = "then"
-TRUE = "true"
-FALSE = "false"
 
 %%
 {DEF}						 { imprimir("function def", 			yytext());}	
 {IF}                         { imprimir("if statement", 			yytext());}
 {ELSE}						 { imprimir("else statement", 			yytext());}
 {THEN}                       { imprimir("then statement", 			yytext());}
-{TRUE}						 { imprimir("false variable", 			yytext());}	
-{FALSE}                      { imprimir("true variable", 			yytext());}
 
 {SUM}                        { imprimir("sum operator", 			yytext());}
 {MINUS}                      { imprimir("minus operator", 			yytext());}

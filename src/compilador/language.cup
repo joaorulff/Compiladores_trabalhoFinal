@@ -4,49 +4,43 @@ import java_cup.runtime.*;
 
 /* Terminals */
 terminal SUM, MINUS, MULTIPLICATION, DIVISION;
-terminal ID, INTEGER, EQUAL, COMMA;
+terminal ID, EQUAL, COMMA, INTEGER;
 terminal OPEN, CLOSE;
 terminal GREATERTHAN, LESSTHAN, EQUALITY;
 terminal DEF, IF, ELSE, THEN;
 terminal ENDSTMT;
 
 /* Nonterminals */
-non terminal P, I, I2, D, ARGS, ARGS2, SEQ, SEQ2, E, E2, E3, T, T2;
-non terminal OPREL, ADDOP, MULTOP;
+non terminal P, I, D, ARGS, SEQ, E;
+non terminal OPREL, OPARIT;
 
 /* Precedence */
 precedence left SUM, MINUS;
 precedence left MULTIPLICATION, DIVISION;
-precedence left OPEN, CLOSE;
 precedence left GREATERTHAN, LESSTHAN, EQUALITY;
+precedence left IF, ELSE, THEN;
+precedence left OPEN, CLOSE;
 
-/* Program */
+/* Grammar */
 start with P;
 
 P ::= ID EQUAL INTEGER ENDSTMT P
     | I;
 	
-I ::= D I2;
-
-I2 ::= I | ;
+I ::= D I | D;
 
 D ::= DEF ID OPEN ARGS CLOSE EQUAL E ENDSTMT;
 
-ARGS ::= ID ARGS2;
+ARGS ::= ID COMMA ARGS
+	| ID;
 
-ARGS2 ::= COMMA ARGS | ;
-
-SEQ ::= E SEQ2;
-
-SEQ2 ::= COMMA E SEQ2 | ; 
+SEQ ::= E 
+	| SEQ COMMA E;
 
 E ::= INTEGER
-    | ID E2;
+	| ID
+	| E:e1 OPARIT E:e2
+    | ID OPEN SEQ CLOSE;
 
-E2 ::= OPEN SEQ CLOSE | ;
-
-E3 ::= ADDOP E3 | ;
-
-ADDOP ::= SUM | MINUS;
-MULTOP ::= MULTIPLICATION | DIVISION;
+OPARIT ::= SUM | MINUS | MULTIPLICATION | DIVISION;
 OPREL ::= EQUALITY | GREATERTHAN | LESSTHAN;

@@ -67,4 +67,4 @@ THEN = "then"
 {INTEGER}           { imprimir("integer",yytext()); return new Symbol(Sym.INTEGER);}
 
 /* error fallback */
-[^]                 { throw new RuntimeException("Caractere inválido " + yytext() + " na linha " + (yyline+1) + ", coluna " +(yycolumn+1)); }
+[^]                 { throw new RuntimeException("Caractere invalido " + yytext() + " na linha " + (yyline+1) + ", coluna " +(yycolumn+1)); }

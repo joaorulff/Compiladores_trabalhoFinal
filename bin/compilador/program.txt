@@ -1,2 +1,14 @@
-a = 2;
-def b ( c ) = 2;
+a = 3125;
+b = 3125;
+c = 3125;
+d = 3125;
+e = 3125;
+f = 3125;
+def mod(a,b,c,d,e,f) = 
+	5 + 5 - 5 * mmc(1,2) / 4;
+def mmc(a,b,c,d,e,f) = 
+	mod(a,b);
+def mod(a,b,c,d,e,f) = 
+	5 - a;
+def mod(a,b) =
+	2;

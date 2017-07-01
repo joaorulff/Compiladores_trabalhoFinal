@@ -4,6 +4,8 @@ import java_cup.runtime.Symbol;
 %%
 
 %cup
+%cupdebug
+%cupsym Sym
 %public
 %class Lexer
 %line
@@ -11,11 +13,9 @@ import java_cup.runtime.Symbol;
 %ignorecase
 
 %{
-
-private void imprimir(String descricao, String lexema) {
-    System.out.println(lexema + " - " + descricao);
-}
-
+    private void imprimir(String descricao, String lexema) {
+        System.out.println(lexema + " - " + descricao);
+    }
 %}
 
 
@@ -41,36 +41,30 @@ DEF = "def"
 IF = "if"
 ELSE = "else"
 THEN = "then"
-TRUE = "true"
-FALSE = "false"
 
 %%
-{DEF}						 { imprimir("function def", 			yytext()); return new Symbol(Sym.DEF);}	
-{IF}                         { imprimir("if statement", 			yytext()); return new Symbol(Sym.IF);}
-{ELSE}						 { imprimir("else statement", 			yytext()); return new Symbol(Sym.ELSE);}
-{THEN}                       { imprimir("then statement", 			yytext()); return new Symbol(Sym.THEN);}
-{TRUE}						 { imprimir("false variable", 			yytext()); return new Symbol(Sym.TRUE);}	
-{FALSE}                      { imprimir("true variable", 			yytext()); return new Symbol(Sym.FALSE);}
+{DEF}               { imprimir("function def",yytext()); return new Symbol(Sym.DEF);}	
+{IF}                { imprimir("if statement",yytext()); return new Symbol(Sym.IF);}
+{ELSE}              { imprimir("else statement",yytext()); return new Symbol(Sym.ELSE);}
+{THEN}              { imprimir("then statement",yytext()); return new Symbol(Sym.THEN);}
 
-{SUM}                        { imprimir("sum operator", 			yytext()); return new Symbol(Sym.SUM);}
-{MINUS}                      { imprimir("minus operator", 			yytext()); return new Symbol(Sym.MINUS);}
-{MULTIPLICATION}             { imprimir("multiplication operator", 	yytext()); return new Symbol(Sym.MULTIPLICATION);}
-{DIVISION}                   { imprimir("division operator", 		yytext()); return new Symbol(Sym.DIVISION);}
+{SUM}               { imprimir("sum operator",yytext()); return new Symbol(Sym.SUM);}
+{MINUS}             { imprimir("minus operator",yytext()); return new Symbol(Sym.MINUS);}
+{MULTIPLICATION}    { imprimir("multiplication operator",yytext()); return new Symbol(Sym.MULTIPLICATION);}
+{DIVISION}          { imprimir("division operator",yytext()); return new Symbol(Sym.DIVISION);}
 
-{OPEN}						 { imprimir("open parenthesis",			yytext()); return new Symbol(Sym.OPEN);}
-{CLOSE}					 	 { imprimir("close parenthesis",		yytext()); return new Symbol(Sym.CLOSE);}
-{EQUAL}						 { imprimir("equal sign",				yytext()); return new Symbol(Sym.EQUAL);}
-{ENDSTATEMENT}				 { imprimir("end-statement sign",		yytext()); return new Symbol(Sym.ENDSTMT);}
-{COMMA}						 { imprimir("comma sign",				yytext()); return new Symbol(Sym.COMMA);}
-{GREATERTHAN}				 { imprimir("greater than",				yytext()); return new Symbol(Sym.GREATERTHAN);}
-{LESSTHAN}					 { imprimir("less than",				yytext()); return new Symbol(Sym.LESSTHAN);}
-{EQUALITY}					 { imprimir("equality",					yytext()); return new Symbol(Sym.EQUALITY);}
+{OPEN}              { imprimir("open parenthesis",yytext()); return new Symbol(Sym.OPEN);}
+{CLOSE}             { imprimir("close parenthesis",yytext()); return new Symbol(Sym.CLOSE);}
+{EQUAL}             { imprimir("equal sign",yytext()); return new Symbol(Sym.EQUAL);}
+{ENDSTATEMENT}      { imprimir("end-statement sign",yytext()); return new Symbol(Sym.ENDSTMT);}
+{COMMA}             { imprimir("comma sign",yytext()); return new Symbol(Sym.COMMA);}
+{GREATERTHAN}       { imprimir("greater than",yytext()); return new Symbol(Sym.GREATERTHAN);}
+{LESSTHAN}          { imprimir("less than",yytext()); return new Symbol(Sym.LESSTHAN);}
+{EQUALITY}          { imprimir("equality",yytext()); return new Symbol(Sym.EQUALITY);}
 
-{BLANK}                      { 	}
-{ID}                         { imprimir("identificator", 			yytext()); return new Symbol(Sym.ID); }
-{INTEGER}                    { imprimir("integer", 					yytext()); return new Symbol(Sym.INTEGER);}
+{BLANK}             { 	}
+{ID}                { imprimir("identificator",yytext()); return new Symbol(Sym.ID); }
+{INTEGER}           { imprimir("integer",yytext()); return new Symbol(Sym.INTEGER);}
 
-
-
-
-. { throw new RuntimeException("Caractere inválido " + yytext()); }
+/* error fallback */
+[^]                 { throw new RuntimeException("Caractere invalido " + yytext() + " na linha " + (yyline+1) + ", coluna " +(yycolumn+1)); }
