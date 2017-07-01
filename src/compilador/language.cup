@@ -4,9 +4,9 @@ import java_cup.runtime.*;
 
 /* Terminals */
 terminal SUM, MINUS, MULTIPLICATION, DIVISION;
-terminal ID, EQUAL, COMMA, INTEGER;
+terminal ID, COMMA, INTEGER;
 terminal OPEN, CLOSE;
-terminal GREATERTHAN, LESSTHAN, EQUALITY;
+terminal GREATERTHAN, LESSTHAN, EQUAL;
 terminal DEF, IF, ELSE, THEN;
 terminal ENDSTMT;
 
@@ -17,7 +17,7 @@ non terminal OPREL, OPARIT;
 /* Precedence */
 precedence left SUM, MINUS;
 precedence left MULTIPLICATION, DIVISION;
-precedence left GREATERTHAN, LESSTHAN, EQUALITY;
+precedence left GREATERTHAN, LESSTHAN, EQUAL;
 precedence left IF, ELSE, THEN;
 precedence left OPEN, CLOSE;
 
@@ -40,7 +40,8 @@ SEQ ::= E
 E ::= INTEGER
 	| ID
 	| E:e1 OPARIT E:e2
+	| IF E:e1 OPREL E:e2 THEN E:e3 ELSE E:e4
     | ID OPEN SEQ CLOSE;
 
 OPARIT ::= SUM | MINUS | MULTIPLICATION | DIVISION;
-OPREL ::= EQUALITY | GREATERTHAN | LESSTHAN;
+OPREL ::= EQUAL | GREATERTHAN | LESSTHAN;

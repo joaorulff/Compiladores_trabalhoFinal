@@ -3,9 +3,9 @@ import java_cup.runtime.Symbol;
 
 %%
 
-%cup
-%cupdebug
 %cupsym Sym
+%cupdebug
+%cup
 %public
 %class Lexer
 %line
@@ -35,7 +35,6 @@ ENDSTATEMENT = ";"
 COMMA = ","
 GREATERTHAN = ">"
 LESSTHAN = "<"
-EQUALITY = "=="
 
 DEF = "def"
 IF = "if"
@@ -60,7 +59,6 @@ THEN = "then"
 {COMMA}             { imprimir("comma sign",yytext()); return new Symbol(Sym.COMMA);}
 {GREATERTHAN}       { imprimir("greater than",yytext()); return new Symbol(Sym.GREATERTHAN);}
 {LESSTHAN}          { imprimir("less than",yytext()); return new Symbol(Sym.LESSTHAN);}
-{EQUALITY}          { imprimir("equality",yytext()); return new Symbol(Sym.EQUALITY);}
 
 {BLANK}             { 	}
 {ID}                { imprimir("identificator",yytext()); return new Symbol(Sym.ID); }

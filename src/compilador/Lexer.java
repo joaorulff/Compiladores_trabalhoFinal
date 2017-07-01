@@ -55,11 +55,11 @@ public class Lexer implements java_cup.runtime.Scanner {
   private static final String ZZ_ACTION_PACKED_0 =
     "\1\0\1\1\1\2\1\3\1\2\2\4\1\5\1\6"+
     "\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16"+
-    "\1\17\2\3\1\1\2\3\1\20\2\3\2\21\1\3"+
-    "\1\22\1\0\2\3\2\23\1\24";
+    "\1\17\2\3\1\1\4\3\2\20\1\3\1\21\1\0"+
+    "\2\3\2\22\1\23";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[36];
+    int [] result = new int[35];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -85,13 +85,13 @@ public class Lexer implements java_cup.runtime.Scanner {
 
   private static final String ZZ_ROWMAP_PACKED_0 =
     "\0\0\0\34\0\34\0\70\0\70\0\124\0\34\0\34"+
-    "\0\34\0\34\0\34\0\34\0\34\0\160\0\34\0\34"+
-    "\0\34\0\34\0\214\0\250\0\304\0\340\0\374\0\34"+
-    "\0\u0118\0\u0134\0\34\0\70\0\u0150\0\70\0\u016c\0\u0188"+
-    "\0\u01a4\0\34\0\70\0\70";
+    "\0\34\0\34\0\34\0\34\0\34\0\34\0\34\0\34"+
+    "\0\34\0\34\0\160\0\214\0\250\0\304\0\340\0\374"+
+    "\0\u0118\0\34\0\70\0\u0134\0\70\0\u0150\0\u016c\0\u0188"+
+    "\0\34\0\70\0\70";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[36];
+    int [] result = new int[35];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -118,21 +118,21 @@ public class Lexer implements java_cup.runtime.Scanner {
     "\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21"+
     "\1\22\1\23\1\24\1\4\1\25\1\26\1\4\1\2"+
     "\1\4\1\27\2\4\36\0\4\4\13\0\3\4\1\0"+
-    "\2\4\1\0\4\4\4\0\2\6\42\0\1\30\21\0"+
-    "\4\4\13\0\1\4\1\31\1\4\1\0\2\4\1\0"+
-    "\4\4\2\0\4\4\13\0\3\4\1\0\1\4\1\32"+
-    "\1\0\4\4\23\0\1\33\12\0\4\4\13\0\2\4"+
-    "\1\34\1\0\2\4\1\0\4\4\2\0\4\4\13\0"+
-    "\3\4\1\0\2\4\1\0\2\4\1\35\1\4\2\0"+
-    "\4\4\13\0\2\4\1\36\1\0\2\4\1\0\4\4"+
-    "\2\0\4\4\13\0\3\4\1\0\2\4\1\37\1\40"+
-    "\3\4\2\0\4\4\13\0\1\4\1\41\1\4\1\0"+
-    "\2\4\1\0\4\4\22\0\1\42\13\0\4\4\13\0"+
-    "\1\4\1\43\1\4\1\0\2\4\1\0\4\4\2\0"+
-    "\4\4\13\0\3\4\1\0\2\4\1\0\3\4\1\44";
+    "\2\4\1\0\4\4\4\0\2\6\30\0\4\4\13\0"+
+    "\1\4\1\30\1\4\1\0\2\4\1\0\4\4\2\0"+
+    "\4\4\13\0\3\4\1\0\1\4\1\31\1\0\4\4"+
+    "\23\0\1\32\12\0\4\4\13\0\2\4\1\33\1\0"+
+    "\2\4\1\0\4\4\2\0\4\4\13\0\3\4\1\0"+
+    "\2\4\1\0\2\4\1\34\1\4\2\0\4\4\13\0"+
+    "\2\4\1\35\1\0\2\4\1\0\4\4\2\0\4\4"+
+    "\13\0\3\4\1\0\2\4\1\36\1\37\3\4\2\0"+
+    "\4\4\13\0\1\4\1\40\1\4\1\0\2\4\1\0"+
+    "\4\4\22\0\1\41\13\0\4\4\13\0\1\4\1\42"+
+    "\1\4\1\0\2\4\1\0\4\4\2\0\4\4\13\0"+
+    "\3\4\1\0\2\4\1\0\3\4\1\43";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[448];
+    int [] result = new int[420];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -170,11 +170,11 @@ public class Lexer implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\2\11\3\1\7\11\1\1\4\11\5\1\1\11"+
-    "\2\1\1\11\3\1\1\0\2\1\1\11\2\1";
+    "\1\0\2\11\3\1\14\11\7\1\1\11\3\1\1\0"+
+    "\2\1\1\11\2\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[36];
+    int [] result = new int[35];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -639,85 +639,81 @@ public class Lexer implements java_cup.runtime.Scanner {
       else {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1: 
-            { throw new RuntimeException("Caractere inválido " + yytext() + " na linha " + (yyline+1) + ", coluna " +(yycolumn+1));
+            { throw new RuntimeException("Caractere invalido " + yytext() + " na linha " + (yyline+1) + ", coluna " +(yycolumn+1));
             }
-          case 21: break;
+          case 20: break;
           case 2: 
             { 
             }
-          case 22: break;
+          case 21: break;
           case 3: 
             { imprimir("identificator",yytext()); return new Symbol(Sym.ID);
             }
-          case 23: break;
+          case 22: break;
           case 4: 
             { imprimir("integer",yytext()); return new Symbol(Sym.INTEGER);
             }
-          case 24: break;
+          case 23: break;
           case 5: 
             { imprimir("sum operator",yytext()); return new Symbol(Sym.SUM);
             }
-          case 25: break;
+          case 24: break;
           case 6: 
             { imprimir("minus operator",yytext()); return new Symbol(Sym.MINUS);
             }
-          case 26: break;
+          case 25: break;
           case 7: 
             { imprimir("multiplication operator",yytext()); return new Symbol(Sym.MULTIPLICATION);
             }
-          case 27: break;
+          case 26: break;
           case 8: 
             { imprimir("division operator",yytext()); return new Symbol(Sym.DIVISION);
             }
-          case 28: break;
+          case 27: break;
           case 9: 
             { imprimir("open parenthesis",yytext()); return new Symbol(Sym.OPEN);
             }
-          case 29: break;
+          case 28: break;
           case 10: 
             { imprimir("close parenthesis",yytext()); return new Symbol(Sym.CLOSE);
             }
-          case 30: break;
+          case 29: break;
           case 11: 
             { imprimir("equal sign",yytext()); return new Symbol(Sym.EQUAL);
             }
-          case 31: break;
+          case 30: break;
           case 12: 
             { imprimir("end-statement sign",yytext()); return new Symbol(Sym.ENDSTMT);
             }
-          case 32: break;
+          case 31: break;
           case 13: 
             { imprimir("comma sign",yytext()); return new Symbol(Sym.COMMA);
             }
-          case 33: break;
+          case 32: break;
           case 14: 
             { imprimir("greater than",yytext()); return new Symbol(Sym.GREATERTHAN);
             }
-          case 34: break;
+          case 33: break;
           case 15: 
             { imprimir("less than",yytext()); return new Symbol(Sym.LESSTHAN);
             }
-          case 35: break;
+          case 34: break;
           case 16: 
-            { imprimir("equality",yytext()); return new Symbol(Sym.EQUALITY);
-            }
-          case 36: break;
-          case 17: 
             { imprimir("if statement",yytext()); return new Symbol(Sym.IF);
             }
-          case 37: break;
-          case 18: 
+          case 35: break;
+          case 17: 
             { imprimir("function def",yytext()); return new Symbol(Sym.DEF);
             }
-          case 38: break;
-          case 19: 
+          case 36: break;
+          case 18: 
             { imprimir("else statement",yytext()); return new Symbol(Sym.ELSE);
             }
-          case 39: break;
-          case 20: 
+          case 37: break;
+          case 19: 
             { imprimir("then statement",yytext()); return new Symbol(Sym.THEN);
             }
-          case 40: break;
+          case 38: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }

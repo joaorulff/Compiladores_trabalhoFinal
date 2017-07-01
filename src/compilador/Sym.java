@@ -8,26 +8,25 @@ package compilador;
 /** CUP generated class containing symbol constants. */
 public class Sym {
   /* terminals */
-  public static final int EQUALITY = 14;
-  public static final int ELSE = 17;
-  public static final int CLOSE = 11;
-  public static final int THEN = 18;
-  public static final int EQUAL = 7;
-  public static final int ENDSTMT = 19;
+  public static final int ELSE = 16;
+  public static final int CLOSE = 10;
+  public static final int THEN = 17;
+  public static final int EQUAL = 13;
+  public static final int ENDSTMT = 18;
   public static final int DIVISION = 5;
   public static final int SUM = 2;
-  public static final int IF = 16;
+  public static final int IF = 15;
   public static final int ID = 6;
-  public static final int COMMA = 8;
-  public static final int LESSTHAN = 13;
+  public static final int COMMA = 7;
+  public static final int LESSTHAN = 12;
   public static final int EOF = 0;
   public static final int MULTIPLICATION = 4;
-  public static final int DEF = 15;
+  public static final int DEF = 14;
   public static final int MINUS = 3;
   public static final int error = 1;
-  public static final int INTEGER = 9;
-  public static final int OPEN = 10;
-  public static final int GREATERTHAN = 12;
+  public static final int INTEGER = 8;
+  public static final int OPEN = 9;
+  public static final int GREATERTHAN = 11;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
@@ -36,14 +35,13 @@ public class Sym {
   "MULTIPLICATION",
   "DIVISION",
   "ID",
-  "EQUAL",
   "COMMA",
   "INTEGER",
   "OPEN",
   "CLOSE",
   "GREATERTHAN",
   "LESSTHAN",
-  "EQUALITY",
+  "EQUAL",
   "DEF",
   "IF",
   "ELSE",
