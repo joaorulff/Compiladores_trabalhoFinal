@@ -249,13 +249,6 @@ public class Lexer implements java_cup.runtime.Scanner {
    */
   private int zzFinalHighSurrogate = 0;
 
-  /* user code: */
-
-private void imprimir(String descricao, String lexema) {
-    System.out.println(lexema + " - " + descricao);
-}
-
-
 
   /**
    * Creates a new scanner
@@ -649,71 +642,71 @@ private void imprimir(String descricao, String lexema) {
             }
           case 21: break;
           case 3: 
-            { imprimir("identificator", 			yytext()); return new Symbol(Sym.ID, new Token( yytext() ));
+            { return new Symbol(Sym.ID, new Token( yytext() ));
             }
           case 22: break;
           case 4: 
-            { imprimir("integer", 					yytext()); return new Symbol(Sym.INTEGER, new Token( yytext() ) );
+            { return new Symbol(Sym.INTEGER, new Token( yytext() ) );
             }
           case 23: break;
           case 5: 
-            { imprimir("sum operator", 			yytext()); return new Symbol(Sym.SUM, new Token( yytext() ));
+            { return new Symbol(Sym.SUM, new Token( yytext() ));
             }
           case 24: break;
           case 6: 
-            { imprimir("minus operator", 			yytext()); return new Symbol(Sym.MINUS, new Token( yytext() ));
+            { return new Symbol(Sym.MINUS, new Token( yytext() ));
             }
           case 25: break;
           case 7: 
-            { imprimir("multiplication operator", 	yytext()); return new Symbol(Sym.MULTIPLICATION, new Token( yytext() ));
+            { return new Symbol(Sym.MULTIPLICATION, new Token( yytext() ));
             }
           case 26: break;
           case 8: 
-            { imprimir("division operator", 		yytext()); return new Symbol(Sym.DIVISION, new Token( yytext() ));
+            { return new Symbol(Sym.DIVISION, new Token( yytext() ));
             }
           case 27: break;
           case 9: 
-            { imprimir("open parenthesis",			yytext()); return new Symbol(Sym.OPEN, new Token( yytext() ));
+            { return new Symbol(Sym.OPEN, new Token( yytext() ));
             }
           case 28: break;
           case 10: 
-            { imprimir("close parenthesis",		yytext()); return new Symbol(Sym.CLOSE, new Token( yytext() ));
+            { return new Symbol(Sym.CLOSE, new Token( yytext() ));
             }
           case 29: break;
           case 11: 
-            { imprimir("equal sign",				yytext()); return new Symbol(Sym.EQUAL, new Token( yytext() ));
+            { return new Symbol(Sym.EQUAL, new Token( yytext() ));
             }
           case 30: break;
           case 12: 
-            { imprimir("end-statement sign",		yytext()); return new Symbol(Sym.ENDSTMT, new Token( yytext() ));
+            { return new Symbol(Sym.ENDSTMT, new Token( yytext() ));
             }
           case 31: break;
           case 13: 
-            { imprimir("comma sign",				yytext()); return new Symbol(Sym.COMMA, new Token( yytext() ));
+            { return new Symbol(Sym.COMMA, new Token( yytext() ));
             }
           case 32: break;
           case 14: 
-            { imprimir("greater than",				yytext()); return new Symbol(Sym.GREATERTHAN, new Token( yytext() ));
+            { return new Symbol(Sym.GREATERTHAN, new Token( yytext() ));
             }
           case 33: break;
           case 15: 
-            { imprimir("less than",				yytext()); return new Symbol(Sym.LESSTHAN, new Token( yytext() ));
+            { return new Symbol(Sym.LESSTHAN, new Token( yytext() ));
             }
           case 34: break;
           case 16: 
-            { imprimir("if statement", 			yytext()); return new Symbol(Sym.IF, new Token( yytext() ));
+            { return new Symbol(Sym.IF, new Token( yytext() ));
             }
           case 35: break;
           case 17: 
-            { imprimir("function def", 			yytext()); return new Symbol(Sym.DEF, new Token( yytext() ));
+            { return new Symbol(Sym.DEF, new Token( yytext() ));
             }
           case 36: break;
           case 18: 
-            { imprimir("else statement", 			yytext()); return new Symbol(Sym.ELSE, new Token( yytext() ));
+            { return new Symbol(Sym.ELSE, new Token( yytext() ));
             }
           case 37: break;
           case 19: 
-            { imprimir("then statement", 			yytext()); return new Symbol(Sym.THEN, new Token( yytext() ));
+            { return new Symbol(Sym.THEN, new Token( yytext() ));
             }
           case 38: break;
           default:

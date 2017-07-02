@@ -19,12 +19,7 @@ public class SemanticAnalysis {
 	}
 	
 	public void analyze() {
-		System.out.println(this.parseTree);
-		String result = "";
-		for(Node n:this.parseTree.nodes) {
-			result += n.getResult();
-		}
-		System.out.println(result);
+		System.out.println(this.parseTree.getResult());
 	}
 		
 	private void paramsValid(List<Token> tokens) {
