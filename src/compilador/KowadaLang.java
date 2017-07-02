@@ -2,7 +2,6 @@ package compilador;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.StringReader;
 import java.nio.file.Paths;
 
 public class KowadaLang {
@@ -15,18 +14,9 @@ public class KowadaLang {
         String sourceCode = rootPath + subPath + "program.txt";
 
         try {
-        	
             Parser p = new Parser(new Lexer(new FileReader(sourceCode)));
             Object result = p.parse().value;
-            
             System.out.println(result);
-            
-            
-        	
-//        	Lexer lexer = new Lexer(new FileReader(sourceCode));
-//        	lexer.yylex();
-            	
-
             System.out.println("Compilacao concluida com sucesso...");
         } catch (Exception e) {
             e.printStackTrace();
