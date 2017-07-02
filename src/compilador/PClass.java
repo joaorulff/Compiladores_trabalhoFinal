@@ -1,30 +1,28 @@
 package compilador;
 
-public class PClass implements Node {
-	
-	public Token id, equal, integer, endstmt;
-	public Node P;
-	public Node I;
-	
-	public PClass(Token id, Token equal, Token integer, Token endstmt, PClass p) {
-		super();
-		this.id = id;
-		this.equal = equal;
-		this.integer = integer;
-		this.endstmt = endstmt;
-		this.P = p;
-	}
-	
-	public PClass(IClass i){
-		
-		this.I = i;
-		
-	}
-	
-	
-	
-	
-	
-	
+import java.util.Arrays;
 
+public class PClass extends Node {
+	
+	public String definedVar;
+	public Integer value;
+	
+	public PClass(Token definedVar, Token integer, Node p) {
+		this.definedVar = definedVar.value;
+		this.value = Integer.parseInt(integer.value);
+		this.nodes = Arrays.asList(p);
+	}
+	
+	public PClass(Node i){
+		this.nodes = Arrays.asList(i);
+	}
+	
+	@Override
+	public String getResult() {
+		String result = this.definedVar;
+		for(Node n:nodes) {
+			result += n.getResult();
+		}
+		return result;
+	}
 }

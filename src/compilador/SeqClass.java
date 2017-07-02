@@ -1,21 +1,23 @@
 package compilador;
 
-public class SeqClass implements Node {
+import java.util.Arrays;
+
+public class SeqClass extends Node {
 	
-	public Token comma;
-	public Node E, SEQ;
-	
-	public SeqClass(Node SEQ, Token comma, Node e) {
-		this.comma = comma;
-		E = e;
-		this.SEQ = SEQ;
+	public SeqClass(Node seq, Node e) {
+		this.nodes = Arrays.asList(seq, e);
 	}
 
 	public SeqClass(Node e) {
-		E = e;
+		this.nodes = Arrays.asList(e);
 	}
 	
-	
-	
-
+	@Override
+	public String getResult() {
+		String result = "";
+		for(Node n:nodes) {
+			result += n.getResult();
+		}
+		return result;
+	}
 }

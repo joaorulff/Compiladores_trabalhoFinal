@@ -35,14 +35,11 @@ ENDSTATEMENT = ";"
 COMMA = ","
 GREATERTHAN = ">"
 LESSTHAN = "<"
-EQUALITY = "=="
 
 DEF = "def"
 IF = "if"
 ELSE = "else"
 THEN = "then"
-TRUE = "true"
-FALSE = "false"
 
 %%
 {DEF}						 { imprimir("function def", 			yytext()); return new Symbol(Sym.DEF, new Token( yytext() ));}	
@@ -68,7 +65,7 @@ FALSE = "false"
 {INTEGER}                    { imprimir("integer", 					yytext()); return new Symbol(Sym.INTEGER, new Token( yytext() ) );}
 
 
-. { throw new RuntimeException("Caractere inválido " + yytext() ); }
+. { throw new RuntimeException("Caracter invalido " + yytext() ); }
  
  
  

@@ -15,8 +15,11 @@ public class KowadaLang {
 
         try {
             Parser p = new Parser(new Lexer(new FileReader(sourceCode)));
-            Object result = p.parse().value;
-            System.out.println(result);
+            Node result = (Node) p.parse().value;
+            
+            SemanticAnalysis sem = new SemanticAnalysis(result);
+            sem.analyze();
+
             System.out.println("Compilacao concluida com sucesso...");
         } catch (Exception e) {
             e.printStackTrace();
