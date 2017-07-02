@@ -1,107 +1,61 @@
 package compilador;
 
 import java_cup.runtime.*;
-import java.io.FileReader;
 
+/* Terminals */
+terminal Token SUM, MINUS, MULTIPLICATION, DIVISION;
+terminal Token ID, COMMA;
+terminal Token OPEN, CLOSE;
+terminal Token GREATERTHAN, LESSTHAN, EQUAL;
+terminal Token DEF, IF, ELSE, THEN;
+terminal Token ENDSTMT;
+terminal Token INTEGER;
 
-parser code
-{:
-    // Funções chamadas em erros ///////////////////////////////////////////////////////////////////////////
-    public void syntax_error(Symbol s){ 
-        System.out.println("\nOcorreu um erro na linha " + (s.right) +", coluna "+s.left+ ". Identificador "
-        +s.value + " não reconhecido." );
-    }
+/* Nonterminals */
+non terminal PClass P;
+non terminal IClass I;
+non terminal DClass D;
+non terminal ArgsClass ARGS;
+non terminal SeqClass SEQ;
+non terminal EClass E;
+non terminal OPRELClass OPREL;
+non terminal OPARITClass OPARIT;
 
-    public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{
-        System.out.println("\nOcorreu um erro na linha " + (s.right)+ ", coluna "+s.left+". Identificador " +
-        s.value + " não reconhecido.");
-    }
-    
-:}
+/* Precedence */
+precedence left SUM, MINUS;
+precedence left MULTIPLICATION, DIVISION;
+precedence left GREATERTHAN, LESSTHAN, EQUAL;
+precedence left IF, ELSE, THEN;
+precedence left OPEN, CLOSE;
 
-terminal SUM, MINUS, MULTIPLICATION, DIVISION;
-terminal ID, INTEGER;
-terminal OPEN, CLOSE, EQUAL, ENDSTMT, COMMA, GREATERTHAN, LESSTHAN, EQUALITY;
-terminal DEF, IF, ELSE, THEN, TRUE, FALSE;
-
-non terminal P, I, D, ARGS, SEQ, E, A, T, OPREL, OPARIT;
-
-precedence right SUM;
-
+/* Grammar */
 start with P;
 
-P ::= 	ID EQUAL INTEGER ENDSTMT P
-	{:
-		System.out.println("P ::= ID EQUAL INTEGER ENDSTMT P");
-	:}
+P ::= ID:id EQUAL INTEGER:integer ENDSTMT P:p 				{: RESULT = new PClass(id, integer, p); :}		
+    | I:i 													{: RESULT = new PClass(i); :};
 	
-|		I
-	{:
-		System.out.println("P ::= I");
-	:};
-	
-I ::=	D ENDSTMT I
-	{:
-		System.out.println("I ::= D ENDSTMT I");
-	:}
-| 		D
-	{:
-		System.out.println("I ::= D");
-	:};
+I ::= D:d I:i 												{: RESULT = new IClass(d, i); :}
+ 	| D:d 													{: RESULT = new IClass(d); :};
 
-D ::= DEF ID OPEN ARGS CLOSE EQUAL E ENDSTMT
-	{:
-		System.out.println("D ::= DEF ID OPEN ARGS CLOSE EQUAL E ENDSTMT");
-	:};
-	
-ARGS ::= ID COMMA ARGS
-	{:
-		System.out.println("ARGS ::= ID COMMA ARGS");
-	:}
-	
-|	ID
-	{:
-		System.out.println("ARGS ::= ID");
-	:};
-	
-SEQ ::= E
-	{:
-		System.out.println("SEQ ::= E");
-	:}
-| SEQ COMMA E
-	{:
-		System.out.println("SEQ COMMA E");
-	:};
-	
-E ::= INTEGER
-	{:
-		System.out.println("E ::= INTEGER");
-	:}
-|	ID
-	{:
-		System.out.println("E ::= ID");
-	:}
-| IF E OPREL E THEN E ELSE E
-	{:
-		System.out.println("E ::= IF E OPREL E THEN E ELSE E");
-	:}
-| E OPARIT E
-	{:
-		System.out.println("E ::= E OPARIT E");
-	:}
-| ID OPEN SEQ CLOSE
-	{:
-		System.out.println("E ::= ID OPEN SEQ CLOSE");
-	:};
+D ::= DEF ID:id OPEN ARGS:args CLOSE EQUAL E:e ENDSTMT 		{: RESULT = new DClass(id, args, e); :};
 
-OPARIT ::= SUM
-	{:
-		System.out.println("OPARIT ::= SUM");
-	:};
+ARGS ::= ID:id COMMA ARGS:args 								{: RESULT = new ArgsClass(id, args); :}
+	| ID:id													{: RESULT = new ArgsClass(id); :};
 
-OPREL ::= EQUALITY
-	{:
-		System.out.println("OPREL ::= SUM");
-	:};
-	
-	
+SEQ ::= E:e 												{: RESULT = new SeqClass(e); :}
+	| SEQ:seq COMMA E:e										{: RESULT = new SeqClass(seq, e); :};
+
+E ::= INTEGER:integer										{: RESULT = new EClass(new Token(""), integer); :}
+	| ID:id													{: RESULT = new EClass(id, new Token("")); :}
+	| E:e1 OPARIT:oparit E:e2								{: RESULT = new EClass(e1, oparit, e2); :}
+	| IF E:e1 OPREL:oprel E:e2 THEN E:e3 ELSE E:e4			{: RESULT = new EClass(e1, oprel, e2, e3, e4); :}
+    | ID:id OPEN SEQ:seq CLOSE								{: RESULT = new EClass(id, seq); :};
+
+OPARIT ::= SUM:sum											{: RESULT = new OPARITClass(sum); :}
+	| MINUS:minus 											{: RESULT = new OPARITClass(minus); :}
+	| MULTIPLICATION:mult									{: RESULT = new OPARITClass(mult); :}
+	| DIVISION:div											{: RESULT = new OPARITClass(div); :};
+
+OPREL ::= EQUAL:equal										{: RESULT = new OPRELClass(equal); :}
+	| GREATERTHAN:gt 										{: RESULT = new OPRELClass(gt); :}
+	| LESSTHAN:lt											{: RESULT = new OPRELClass(lt); :};
