@@ -1,7 +1,9 @@
 package compilador;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 public class DClass extends Node {
@@ -39,7 +41,36 @@ public class DClass extends Node {
 		for(Node n:nodes) {
 			result += n.getResult();
 		}
+		System.out.println("D:  " + result);
+		
+		analyzeDef();
+		
 		return result;
 	}
+	
+	public void analyzeDef(){
+		
+		ArrayList<String> listOfArgs = new ArrayList<>();
+		
+		ArgsClass args = (ArgsClass)nodes.get(0);
+		EClass e = (EClass)nodes.get(1);
+		
+		while(args != null){
+			
+			listOfArgs.add(args.id);
+
+			if( args.nodes.size() > 0 ){
+				args = (ArgsClass)args.nodes.get(0);
+			}else{
+				args = null;
+			}
+		}
+		
+		while(e != null){
+			
+			
+			
+		}
+		
 
 }

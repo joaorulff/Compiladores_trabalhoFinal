@@ -5,10 +5,10 @@ import java.util.List;
 public class SemanticAnalysis {
 	
 /*
-	a) os identificadores que aparecem em cada função são passados como parâmetros.
-	b) as funções chamadas foram definidas e com a quantidade de parâmetros compatível.
-	c) não há parâmetros repetidos (na declaração de uma função). OK
-	d) não há funções declaradas mais de uma vez.
+	a) os identificadores que aparecem em cada funï¿½ï¿½o sï¿½o passados como parï¿½metros.
+	b) as funï¿½ï¿½es chamadas foram definidas e com a quantidade de parï¿½metros compatï¿½vel.
+	c) nï¿½o hï¿½ parï¿½metros repetidos (na declaraï¿½ï¿½o de uma funï¿½ï¿½o). OK
+	d) nï¿½o hï¿½ funï¿½ï¿½es declaradas mais de uma vez.
 */
 	private Node parseTree;
 	private SymbolTable table;
@@ -17,6 +17,7 @@ public class SemanticAnalysis {
 		this.parseTree = parseTree;
 		this.table = new SymbolTable();
 	}
+	
 	
 	public void analyze() {
 		System.out.println(this.parseTree.getResult());

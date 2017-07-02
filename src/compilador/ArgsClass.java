@@ -10,7 +10,6 @@ public class ArgsClass extends Node{
 	public ArgsClass(Token id, Node args) {
 		this.id = id.value;
 		this.nodes = Arrays.asList(args);
-		System.out.println(this.getResult());
 	}
 	
 	public ArgsClass(Token id){
@@ -24,6 +23,7 @@ public class ArgsClass extends Node{
 		for(Node n:nodes) {
 			result += n.getResult();
 		}
+		System.out.println(result);
 		return result;
 	}
 }

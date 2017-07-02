@@ -14,7 +14,7 @@ public class KowadaLang {
         String sourceCode = rootPath + subPath + "program.txt";
 
         try {
-            Parser p = new Parser(new Lexer(new FileReader(sourceCode)));
+        	Parser p = new Parser(new Lexer(new FileReader(sourceCode)));
             Node result = (Node) p.parse().value;
             
             SemanticAnalysis sem = new SemanticAnalysis(result);
