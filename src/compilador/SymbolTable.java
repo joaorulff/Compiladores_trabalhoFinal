@@ -15,16 +15,13 @@ public class SymbolTable {
 	}
 
 	public void enterScope(){
-		
 		this.table.push(new ArrayList<String>());
 	}
 	
 	public void addSymbol(String sym) {
-		
 		ArrayList<String> s = this.table.peek();
 		s.add(sym);
 	}
-	
 	
 	public boolean isInScope(String sym) {
 		ArrayList<String> s = this.table.peek();

@@ -1,6 +1,5 @@
 package compilador;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class EClass extends Node{
@@ -34,22 +33,22 @@ public class EClass extends Node{
 		this.nodes = Arrays.asList(seq);
 	}
 	
-	
 	@Override
 	public String getResult() throws Exception {
 		String result = this.id;
-		
-		if(result != null){
-			SemanticAnalysis a = SemanticAnalysis.getInstance(null);
-			if(!a.table.isInScope(id)){
-				throw new Exception("Variavel não declarada");
+
+		if(result != null && !result.isEmpty()){
+			SemanticAnalysis sem = SemanticAnalysis.getInstance(null);
+			if(!sem.isInScope(result)){
+				System.out.println("RESULT: " + result.isEmpty());
+				throw new Exception("Variavel nao declarada: " + result);
 			}
 		}
 		
-		
 		for(Node n:nodes) {
-			result += ","+n.getResult();
+			result += "," + n.getResult();
 		}
+
 		return result;
 	}
 }

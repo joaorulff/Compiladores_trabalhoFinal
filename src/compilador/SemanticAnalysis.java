@@ -1,17 +1,16 @@
 package compilador;
 
-import java.util.List;
-
 public class SemanticAnalysis {
 	
 /*
-	a) os identificadores que aparecem em cada fun��o s�o passados como par�metros. OK
-	b) as fun��es chamadas foram definidas e com a quantidade de par�metros compat�vel.
-	c) n�o h� par�metros repetidos (na declara��o de uma fun��o). OK
-	d) n�o h� fun��es declaradas mais de uma vez.
+	Verificar se:
+		a) os identificadores que aparecem em cada funcao sao passados como parametros. OK
+		b) as funcoes chamadas foram definidas e com a quantidade de parametros compativel.
+		c) nao ha parametros repetidos (na declaracao de uma funcao). OK
+		d) nao ha funcoes declaradas mais de uma vez.
 */
 	public Node parseTree;
-	public SymbolTable table;
+	private SymbolTable table;
 	
 	private static SemanticAnalysis instance = null;
 	
@@ -21,31 +20,31 @@ public class SemanticAnalysis {
 	}
 	
 	public static SemanticAnalysis getInstance(Node parseTree){
-		
 		if (instance == null){
 			instance = new SemanticAnalysis(parseTree);
 		}
-		
 		return instance;
 	}
 	
 	
 	public void analyze() throws Exception {
-		System.out.println(this.parseTree.getResult());
-	}
-		
-	private void paramsValid(List<Token> tokens) {
-		//should check if the amount of params passed is correct
-		//should check if the params passed are valid
+		String result = this.parseTree.getResult();
 	}
 	
-	private void isValid(Token t) {
-		//should check if the param has been defined in the context
+	public void enterScope() {
+		this.table.enterScope();
 	}
 	
-	private void isDefined(Token t) {
-		//should check if the token was already declared
+	public void addSymbol(String sym) {
+		this.table.addSymbol(sym);
 	}
 	
+	public boolean isInScope(String sym) {
+		return this.table.isInScope(sym);
+	}
+	
+	public void exitScope() {
+		this.table.exitScope();
+	}
 	
 }

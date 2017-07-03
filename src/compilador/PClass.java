@@ -18,15 +18,10 @@ public class PClass extends Node {
 	}
 	
 	@Override
-	public String getResult() {
+	public String getResult() throws Exception{
 		String result = this.definedVar;
 		for(Node n:nodes) {
-			try {
-				result += n.getResult();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			result += n.getResult();
 		}
 		return result;
 	}
