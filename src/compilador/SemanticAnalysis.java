@@ -5,21 +5,32 @@ import java.util.List;
 public class SemanticAnalysis {
 	
 /*
-	a) os identificadores que aparecem em cada fun��o s�o passados como par�metros.
+	a) os identificadores que aparecem em cada fun��o s�o passados como par�metros. OK
 	b) as fun��es chamadas foram definidas e com a quantidade de par�metros compat�vel.
 	c) n�o h� par�metros repetidos (na declara��o de uma fun��o). OK
 	d) n�o h� fun��es declaradas mais de uma vez.
 */
-	private Node parseTree;
-	private SymbolTable table;
+	public Node parseTree;
+	public SymbolTable table;
 	
-	public SemanticAnalysis(Node parseTree) {
+	private static SemanticAnalysis instance = null;
+	
+	private SemanticAnalysis(Node parseTree){
 		this.parseTree = parseTree;
 		this.table = new SymbolTable();
 	}
 	
+	public static SemanticAnalysis getInstance(Node parseTree){
+		
+		if (instance == null){
+			instance = new SemanticAnalysis(parseTree);
+		}
+		
+		return instance;
+	}
 	
-	public void analyze() {
+	
+	public void analyze() throws Exception {
 		System.out.println(this.parseTree.getResult());
 	}
 		

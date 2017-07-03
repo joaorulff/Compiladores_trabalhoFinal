@@ -1,6 +1,5 @@
 a = 312;
 b = 111;
-def mdc(a,b,c) =
-	if mod(a,b)= 0
-	then b
-	else mdc(b,mod(a,b));
+def mdc(a,b,c) = 
+	mod(a,b,c,d);
+	

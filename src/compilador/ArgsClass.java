@@ -18,12 +18,11 @@ public class ArgsClass extends Node{
 	}
 	
 	@Override
-	public String getResult() {
+	public String getResult() throws Exception {
 		String result = this.id;
 		for(Node n:nodes) {
-			result += n.getResult();
+			result += "," + n.getResult();
 		}
-		System.out.println(result);
 		return result;
 	}
 }

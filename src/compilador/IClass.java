@@ -13,7 +13,7 @@ public class IClass extends Node{
 	}
 	
 	@Override
-	public String getResult() {
+	public String getResult() throws Exception {
 		String result = "";
 		for(Node n:nodes) {
 			result += n.getResult();

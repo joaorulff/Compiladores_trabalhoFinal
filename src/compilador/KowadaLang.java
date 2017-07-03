@@ -14,14 +14,17 @@ public class KowadaLang {
         String sourceCode = rootPath + subPath + "program.txt";
 
         try {
+        	
         	Parser p = new Parser(new Lexer(new FileReader(sourceCode)));
             Node result = (Node) p.parse().value;
             
-            SemanticAnalysis sem = new SemanticAnalysis(result);
+            SemanticAnalysis sem = SemanticAnalysis.getInstance(result);
             sem.analyze();
 
             System.out.println("Compilacao concluida com sucesso...");
+            
         } catch (Exception e) {
+        	
             e.printStackTrace();
         }
 

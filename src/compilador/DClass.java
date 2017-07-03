@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 public class DClass extends Node {
@@ -36,41 +37,29 @@ public class DClass extends Node {
 	}
 	
 	@Override
-	public String getResult() {
+	public String getResult() throws Exception {
 		String result = this.definedFn;
-		for(Node n:nodes) {
-			result += n.getResult();
-		}
-		System.out.println("D:  " + result);
+
+//		for(Node n:nodes) {
+//			result += n.getResult();
+//		}
+
 		
-		analyzeDef();
+		String argsResult = nodes.get(0).getResult();
+		List<String> args = Arrays.asList(argsResult.split(","));
+		
+		SemanticAnalysis semanticAnalysis = SemanticAnalysis.getInstance(null);
+		semanticAnalysis.table.enterScope();
+		
+		semanticAnalysis.table.addSymbol(this.definedFn);
+		for (String string : args) {
+			semanticAnalysis.table.addSymbol(string);
+		}
+		
+		String eResult = nodes.get(1).getResult();
+		System.out.println("E: " + eResult);
 		
 		return result;
 	}
 	
-	public void analyzeDef(){
-		
-		ArrayList<String> listOfArgs = new ArrayList<>();
-		
-		ArgsClass args = (ArgsClass)nodes.get(0);
-		EClass e = (EClass)nodes.get(1);
-		
-		while(args != null){
-			
-			listOfArgs.add(args.id);
-
-			if( args.nodes.size() > 0 ){
-				args = (ArgsClass)args.nodes.get(0);
-			}else{
-				args = null;
-			}
-		}
-		
-		while(e != null){
-			
-			
-			
-		}
-		
-
 }

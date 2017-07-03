@@ -21,7 +21,12 @@ public class PClass extends Node {
 	public String getResult() {
 		String result = this.definedVar;
 		for(Node n:nodes) {
-			result += n.getResult();
+			try {
+				result += n.getResult();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return result;
 	}
