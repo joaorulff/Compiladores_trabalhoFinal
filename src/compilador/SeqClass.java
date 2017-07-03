@@ -20,4 +20,9 @@ public class SeqClass extends Node {
 		}
 		return result;
 	}
+	
+	public String generateCode(){
+		//TODO: Joao
+		return null;
+	}
 }

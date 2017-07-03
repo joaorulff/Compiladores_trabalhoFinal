@@ -61,5 +61,11 @@ public class DClass extends Node {
 		
 		return result;
 	}
+
+	@Override
+	public String generateCode() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

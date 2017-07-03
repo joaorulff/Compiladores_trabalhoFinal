@@ -12,4 +12,5 @@ public abstract class Node {
 	}
 	
 	public abstract String getResult() throws Exception;
+	public abstract String generateCode();
 }

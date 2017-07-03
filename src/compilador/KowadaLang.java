@@ -18,8 +18,10 @@ public class KowadaLang {
         	Parser p = new Parser(new Lexer(new FileReader(sourceCode)));
             Node result = (Node) p.parse().value;
             
-            SemanticAnalysis sem = SemanticAnalysis.getInstance(result);
-            sem.analyze();
+//            SemanticAnalysis sem = SemanticAnalysis.getInstance(result);
+//            sem.analyze();
+            
+            CodeGenerator cg = new CodeGenerator();
 
             System.out.println("Compilacao concluida com sucesso...");
             
