@@ -17,15 +17,17 @@ public class DClass extends Node {
 	@Override
 	public String getResult() throws Exception {
 		String argsResult = nodes.get(0).getResult();
-		List<String> args = Arrays.asList(argsResult.split(","));
-		this.validateArgs(args);
+		this.validateArgs(argsResult);
 		
 		String eResult = nodes.get(1).getResult();
+		this.validateExpression(eResult);
 		
-		return this.definedFn + argsResult + eResult;
+		return this.definedFn;
 	}
 	
-	public void validateArgs(List<String> args) throws Exception {
+	public void validateArgs(String argsResult) throws Exception {
+		//Validates the function definition
+		List<String> args = Arrays.asList(argsResult.split(","));
 		SemanticAnalysis semanticAnalysis = SemanticAnalysis.getInstance(null);
 		Set<String> argSet = new HashSet<String>(args);
 		if(argSet.size() < args.size()) {
@@ -39,6 +41,10 @@ public class DClass extends Node {
 		for (String string : args) {
 			semanticAnalysis.addSymbol(string);
 		}
+	}
+	
+	public void validateExpression(String expr) {
+		System.out.println(expr);
 	}
 	
 }

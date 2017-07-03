@@ -11,8 +11,10 @@ public class EClass extends Node{
 		this.id = id.value;
 		try {
 			this.integer = Integer.parseInt(integer.value);
+			System.out.println(this.integer);
 		} catch (NumberFormatException e) {
 			this.integer = null;
+			System.out.println("what");
 		}
 	}
 
@@ -33,20 +35,33 @@ public class EClass extends Node{
 		this.nodes = Arrays.asList(seq);
 	}
 	
+	private boolean isNumeric(String n) {
+		try {
+			Integer.parseInt(n);
+		} catch (NumberFormatException e) {
+			return false;
+		}
+		return true;
+	}
+
 	@Override
 	public String getResult() throws Exception {
-		String result = this.id;
+		String result = "";
+		if(this.id != null && !this.id.isEmpty()) {
+			result = this.id;
+		} else if(this.integer != null) {
+			result = this.integer.toString();
+		}
 
-		if(result != null && !result.isEmpty()){
+		if(result != null && !isNumeric(result)){
 			SemanticAnalysis sem = SemanticAnalysis.getInstance(null);
 			if(!sem.isInScope(result)){
-				System.out.println("RESULT: " + result.isEmpty());
 				throw new Exception("Variavel nao declarada: " + result);
 			}
 		}
 		
 		for(Node n:nodes) {
-			result += "," + n.getResult();
+			result += n.getResult();
 		}
 
 		return result;
