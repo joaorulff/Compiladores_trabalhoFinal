@@ -1,5 +1,8 @@
 a = 312;
 d = 111;
-def mdc(a,b,c) = 
-	mdc(a,b,c);
+e = 3;
+k = 4;
+def mdc(a,b,c) = 2;
+def mod(a,b) = 3;
+def caralho(y,x) = 4;
 	
