@@ -16,13 +16,17 @@ public class DClass extends Node {
 	
 	@Override
 	public String getResult() throws Exception {
+		SemanticAnalysis semanticAnalysis = SemanticAnalysis.getInstance(null);
+		
+		semanticAnalysis.enterScope();
 		String argsResult = nodes.get(0).getResult();
 		this.validateArgs(argsResult);
 		
 		String eResult = nodes.get(1).getResult();
 		this.validateExpression(eResult);
-		
-		return this.definedFn;
+		semanticAnalysis.exitScope();
+
+		return this.definedFn + ",";
 	}
 	
 	public void validateArgs(String argsResult) throws Exception {

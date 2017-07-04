@@ -24,7 +24,6 @@ public class KowadaLang {
             System.out.println("Compilacao concluida com sucesso...");
             
         } catch (Exception e) {
-        	
             e.printStackTrace();
         }
 

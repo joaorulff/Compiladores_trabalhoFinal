@@ -7,7 +7,7 @@ public class SemanticAnalysis {
 		a) os identificadores que aparecem em cada funcao sao passados como parametros. OK
 		b) as funcoes chamadas foram definidas e com a quantidade de parametros compativel.
 		c) nao ha parametros repetidos (na declaracao de uma funcao). OK
-		d) nao ha funcoes declaradas mais de uma vez.
+		d) nao ha funcoes declaradas mais de uma vez. OK
 */
 	public Node parseTree;
 	private SymbolTable table;

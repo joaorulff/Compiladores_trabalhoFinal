@@ -11,10 +11,8 @@ public class EClass extends Node{
 		this.id = id.value;
 		try {
 			this.integer = Integer.parseInt(integer.value);
-			System.out.println(this.integer);
 		} catch (NumberFormatException e) {
 			this.integer = null;
-			System.out.println("what");
 		}
 	}
 

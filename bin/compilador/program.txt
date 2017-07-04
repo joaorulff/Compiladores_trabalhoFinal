@@ -1,3 +1,4 @@
 a = 312;
 d = 111;
 def mdc(a, b, c, d) = mdc(1, 5);
+def mod(a, b, c, d) = mod(a,b);
