@@ -27,11 +27,11 @@ public class SemanticAnalysis {
 		for (FunctionDeclaration functionDeclaration : declarations) {
 			
 			ArrayList<ID> parameters = functionDeclaration.args;
-			ArrayList<ID> globalParams = program.globalIDsDeclared();
+//			ArrayList<ID> globalParams = program.globalIDsDeclared();
 			
-			if(globalParams != null && globalParams.size() > 0){
-				parameters.addAll(globalParams);
-			}
+//			if(globalParams != null && globalParams.size() > 0){
+//				parameters.addAll(globalParams);
+//			}
 			
 			ArrayList<ID> ids = functionDeclaration.scope.getAllUsedIdentifiers();
 			
