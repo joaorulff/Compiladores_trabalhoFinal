@@ -33,6 +33,9 @@ public class KowadaLang {
             semanticAnalysis(program);
             
             CodeGenerator.generateCode(program);
+            
+//            System.out.println("\n\n\n\n\n\n\n");
+//            CodeGenerator.printHash();
 
             System.out.println("Compilacao concluida com sucesso...");
             

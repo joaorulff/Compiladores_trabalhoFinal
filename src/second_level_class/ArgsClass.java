@@ -10,7 +10,5 @@ import utils.ID;
 public abstract class ArgsClass extends Node{
 	
 	public abstract ArrayList<ID> getArgs();
-	
-	
 
 }

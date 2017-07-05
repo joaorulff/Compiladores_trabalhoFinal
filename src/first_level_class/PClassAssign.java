@@ -68,8 +68,11 @@ public class PClassAssign extends PClass {
 	@Override
 	public void generateCode() {
 		
-		System.out.println("\t li " + CodeGenerator.getNextRegister() + " " + this.integer);
+		String nextRegister = CodeGenerator.getNextRegister();
+		CodeGenerator.insertNewUsedRegister(this.id, nextRegister, this.integer);
+		System.out.println("\t li " + nextRegister + " " + this.integer);
 		this.pclass.generateCode();
+		
 	}
 	
 	

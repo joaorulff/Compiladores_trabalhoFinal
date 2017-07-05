@@ -55,10 +55,7 @@ public class DClassInstance extends DClass {
 		System.out.println("\t sw $ra 0($sp)");
 		System.out.println("\t addiu $sp $sp-4");
 		
-		System.out.println("--------------TODO-------------");
-		System.out.println("cgen(e)");
 		this.scope.generateCode();
-		System.out.println("--------------TODO-------------");
 		
 		System.out.println("\t lw $ra 4($sp)");
 		System.out.println("\t addiu $sp z");
