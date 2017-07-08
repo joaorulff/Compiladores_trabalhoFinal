@@ -1,12 +1,15 @@
 package first_level_class;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import second_level_class.EClass;
 import second_level_class.SeqClass;
 import utils.ID;
 
 public class SeqClassSingle extends SeqClass{
+	
+	////Corresponding rule: SEQ ::= E
 	
 	public EClass e;
 
@@ -16,10 +19,7 @@ public class SeqClassSingle extends SeqClass{
 	
 	@Override
 	public ArrayList<ID> getAllSeqIds() {
-		
-		ArrayList<ID> thisIDs = this.e.getAllUsedIdentifiers();
-		
-		return thisIDs;
+		return this.e.getAllUsedIdentifiers();
 	}
 
 	@Override
@@ -33,10 +33,8 @@ public class SeqClassSingle extends SeqClass{
 	}
 
 	@Override
-	public void generateCode() {
-		// TODO Auto-generated method stub
+	public List<String> generateCode() {
+		return e.generateCode();
 	}
-	
-	
 
 }

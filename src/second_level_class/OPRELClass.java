@@ -1,5 +1,7 @@
 package second_level_class;
 
+import java.util.List;
+
 import compilador.Node;
 import compilador.Token;
 
@@ -21,8 +23,9 @@ public class OPRELClass extends Node{
 
 
 	@Override
-	public void generateCode() {
+	public List<String> generateCode() {
 		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

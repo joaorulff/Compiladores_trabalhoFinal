@@ -1,8 +1,8 @@
 package first_level_class;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import compilador.Node;
 import second_level_class.IClass;
 import second_level_class.PClass;
 import utils.FunctionDeclaration;
@@ -11,6 +11,7 @@ import utils.ID;
 public class PClassDef extends PClass{
 	
 	//Corresponding Rule: P ::= I:i
+	
 	public IClass i;
 	
 	public PClassDef(IClass i) {
@@ -24,11 +25,9 @@ public class PClassDef extends PClass{
 
 	@Override
 	public void printTree() {
-		
 		System.out.println();
 		System.out.print("I: ");
 		this.i.printTree();
-		
 	}
 
 	@Override
@@ -38,18 +37,13 @@ public class PClassDef extends PClass{
 
 	@Override
 	public ArrayList<FunctionDeclaration> globalFunctionsDeclared() {
-		
 		ArrayList<FunctionDeclaration> result = this.i.getGlobalFunctions();
 		return result;
 	}
 
 	@Override
-	public void generateCode() {
-		this.i.generateCode();
+	public List<String> generateCode() {
+		return this.i.generateCode();
 	}
 	
-	
-
-	
-
 }

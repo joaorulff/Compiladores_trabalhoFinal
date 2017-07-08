@@ -1,6 +1,7 @@
 package first_level_class;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import second_level_class.EClass;
 import second_level_class.OPRELClass;
@@ -9,17 +10,17 @@ import utils.ID;
 
 public class EClassOprel extends EClass{
 	
+	////Corresponding rule: E ::= IF E1 OPREL E2 THEN E3 ELSE E4
+	
 	public EClass e1, e2, e3, e4;
 	public OPRELClass oprel;
 	
 	public EClassOprel(EClass e1, OPRELClass oprel, EClass e2, EClass e3, EClass e4) {
-		
 		this.e1 = e1;
 		this.e2 = e2;
 		this.e3 = e3;
 		this.e4 = e4;
 		this.oprel = oprel;
-		
 	}
 
 	@Override
@@ -29,7 +30,6 @@ public class EClassOprel extends EClass{
 
 	@Override
 	public ArrayList<FunctionCall> getFunctionCalls() {
-		
 		ArrayList<FunctionCall> functionCallsE1 = this.e1.getFunctionCalls();
 		ArrayList<FunctionCall> functionCallsE2 = this.e2.getFunctionCalls();
 		ArrayList<FunctionCall> functionCallsE3 = this.e3.getFunctionCalls();
@@ -68,10 +68,23 @@ public class EClassOprel extends EClass{
 	}
 
 	@Override
-	public void generateCode() {
-		// TODO Auto-generated method stub
+	public List<String> generateCode() {
+		List<String> result = new ArrayList<>();
+		result.addAll(e1.generateCode());
+		result.add("sw $a0 0($sp)");
+		result.add("addiu $sp $sp -4");
+		result.addAll(e2.generateCode());
+		result.add("lw $t1 4($sp)");
+		result.add("addiu $sp $sp 4");
+		//beq (=)
+		result.add("beq $a0 $t1 true_branch");
+		result.add("false_branch:");
+		result.addAll(e4.generateCode());
+		result.add("b end_if");
+		result.add("true_branch:");
+		result.addAll(e3.generateCode());
+		result.add("end_if");
+		return result;
 	}
 	
-	
-
 }

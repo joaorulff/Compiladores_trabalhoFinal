@@ -1,6 +1,7 @@
 package first_level_class;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import second_level_class.EClass;
 import second_level_class.SeqClass;
@@ -8,20 +9,18 @@ import utils.ID;
 
 public class SeqClassCompound extends SeqClass{
 	
+	////Corresponding rule: SEQ ::= SEQ COMMA E
 	
 	public SeqClass seq;
 	public EClass e;
 	
 	public SeqClassCompound(SeqClass seq, EClass e) {
-		
 		this.seq = seq;
 		this.e = e;
-		
 	}
 
 	@Override
 	public ArrayList<ID> getAllSeqIds() {
-		
 		ArrayList<ID> thisIds = this.e.getAllUsedIdentifiers();
 		ArrayList<ID> seqIds = this.seq.getAllSeqIds();
 		
@@ -32,10 +31,8 @@ public class SeqClassCompound extends SeqClass{
 
 	@Override
 	public void printTree() {
-		
 		this.seq.printTree();
 		this.e.printTree();
-		
 	}
 
 	@Override
@@ -44,7 +41,8 @@ public class SeqClassCompound extends SeqClass{
 	}
 
 	@Override
-	public void generateCode() {
+	public List<String> generateCode() {
 		// TODO Auto-generated method stub
+		return null;
 	}
 }

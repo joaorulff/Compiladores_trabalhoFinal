@@ -1,6 +1,7 @@
 package first_level_class;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import compilador.Token;
@@ -59,8 +60,9 @@ public class EClassFunc extends EClass{
 	}
 
 	@Override
-	public void generateCode() {
+	public List<String> generateCode() {
 		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

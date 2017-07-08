@@ -1,6 +1,7 @@
 package first_level_class;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import compilador.Token;
 import second_level_class.EClass;
@@ -8,6 +9,8 @@ import utils.FunctionCall;
 import utils.ID;
 
 public class EClassSingleInt extends EClass{
+	
+	////Corresponding rule: E ::= INTEGER
 	
 	public Integer integer;
 	
@@ -46,8 +49,10 @@ public class EClassSingleInt extends EClass{
 
 
 	@Override
-	public void generateCode() {
-		System.out.println( );
+	public List<String> generateCode() {
+		List<String> result = new ArrayList<>();
+		result.add("li $a0 " + this.integer);
+		return result;
 	}
 
 }
