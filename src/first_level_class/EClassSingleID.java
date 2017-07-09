@@ -53,7 +53,7 @@ public class EClassSingleID extends EClass {
 
 	@Override
 	public void generateCode() {
-		// TODO Auto-generated method stub
+		System.out.println("li $ao " + "ZZZZZZ");
 	}
 	
 	

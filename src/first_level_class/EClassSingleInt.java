@@ -47,7 +47,7 @@ public class EClassSingleInt extends EClass{
 
 	@Override
 	public void generateCode() {
-		System.out.println( );
+		System.out.println("li $ao " + this.integer.toString());
 	}
 
 }
