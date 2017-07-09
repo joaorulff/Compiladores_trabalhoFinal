@@ -59,7 +59,6 @@ public class PClassAssign extends PClass {
 	@Override
 	public List<String> generateCode() {
 		List<String> result = new ArrayList<>();
-		result.add("li $a0 " + this.integer);
 		result.addAll(this.pclass.generateCode());
 		return result;
 	}

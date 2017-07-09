@@ -11,8 +11,13 @@ import java_cup.runtime.Symbol;
 %ignorecase
 
 BLANK = [\n| |\t|\r]
+LINETERMINATOR = [\n]
+INPUT = [^\r\n]
 ID = [_|a-z|A-Z][a-z|A-Z|0-9|_]*
 INTEGER = 0|[1-9][0-9]*
+
+MULTILINECOMMENT   = "/*" [^*] ~"*/" | "/*" "*"+ "/"
+LINECOMMENT = "//" {INPUT}* {LINETERMINATOR}?
 
 SUM = "+"
 MINUS = "-"
@@ -51,7 +56,10 @@ THEN = "then"
 {GREATERTHAN}				 { return new Symbol(Sym.GREATERTHAN, new Token( yytext() ));}
 {LESSTHAN}					 { return new Symbol(Sym.LESSTHAN, new Token( yytext() ));}
 
-{BLANK}                      {  }
+{LINECOMMENT}				 {}
+{MULTILINECOMMENT}		     {}
+
+{BLANK}                      {}
 {ID}                         { return new Symbol(Sym.ID, new Token( yytext() )); }
 {INTEGER}                    { return new Symbol(Sym.INTEGER, new Token( yytext() ) );}
 

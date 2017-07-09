@@ -1,7 +1,5 @@
-<<<<<<< HEAD
-def mod(a,b) = mdc(1, a);
-def mdc(a,b) = 1;
-=======
+a = 2;
+b = 3;
 def mod(a,b) = mdc(1, 2);
 def mdc(a,b) = 5;
->>>>>>> 1800eadf1cdf9456d4b8f83aa90a6e03b4a75f8e
+

@@ -1,2 +1,5 @@
-def mod(a,b) = mdc(1, a);
-def mdc(a,b) = 1;
+a = 2;
+b = 3;
+def mod(a,b) = mdc(1, 2);
+def mdc(a,b) = 5;
+
