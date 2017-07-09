@@ -3,21 +3,15 @@ package compilador;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 
 import SemanticAnalysis.SemanticAnalysis;
 import codeGeneration.CodeGenerator;
-import second_level_class.EClass;
 import second_level_class.PClass;
-import utils.FunctionCall;
 //import second_level_class.PClass;
-import utils.FunctionDeclaration;
-import utils.ID;
 
 public class KowadaLang {
 
@@ -32,8 +26,7 @@ public class KowadaLang {
         	
 			Parser p = new Parser(new Lexer(new FileReader(sourceCode)));
             Node result = (Node) p.parse().value;
-            PClass program = (PClass)result;
-            
+            PClass program = (PClass) result;
             semanticAnalysis(program);
             
             List<String> code = CodeGenerator.generateCode(program);

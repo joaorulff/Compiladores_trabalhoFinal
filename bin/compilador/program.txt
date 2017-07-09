@@ -1,1 +1,1 @@
-def mod(a,b) = 2 + 1;
+def mod(a,b) = if 1 > 2 then 2 else 1;

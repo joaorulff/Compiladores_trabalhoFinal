@@ -44,7 +44,7 @@ public class DClassInstance extends DClass {
 		result.add(this.id + "_entry:");
 		result.add("move $fp $sp");
 		result.add("sw $ra 0($sp)");
-		result.add("addiu $sp $sp-4");
+		result.add("addiu $sp $sp -4");
 		result.addAll(this.scope.generateCode());
 		result.add("lw $ra 4($sp)");
 		result.add("addiu $sp $sp " + this.z);

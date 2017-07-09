@@ -7,11 +7,11 @@ import compilador.Token;
 
 public class OPRELClass extends Node{
 	
-	public Token equal;
+	public Token operator;
 
-	public OPRELClass(Token equal) {
+	public OPRELClass(Token operator) {
 		super();
-		this.equal = equal;
+		this.operator = operator;
 	}
 
 

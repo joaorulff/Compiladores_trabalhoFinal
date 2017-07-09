@@ -18,7 +18,6 @@ public class OPARITClass extends Node {
 	@Override
 	public void printTree() {
 		// TODO Auto-generated method stub
-		
 	}
 
 

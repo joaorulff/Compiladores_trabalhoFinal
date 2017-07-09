@@ -11,7 +11,6 @@ public abstract class Node {
 		nodes = new ArrayList<Node>();
 	}
 	
-//	public abstract String getResult() throws Exception;
 	public abstract List<String> generateCode();
 	
 	public abstract void printTree();

@@ -56,22 +56,26 @@ public class EClassOparit extends EClass{
 		return null;
 	}
 	
-	private String generateOperationInstruction(){
+	private List<String> generateOperationInstruction(){
 		String op = this.oparit.operator.value;
+		List<String> result = new ArrayList<>();
 		switch(op) {
 			case "+":
-				return "add $a0 $t1 $a0";
+				result.add("add $a0 $t1 $a0");
+				break;
 			case "-":
-				return "sub $a0 $t1 $a0";
+				result.add("sub $a0 $t1 $a0");
+				break;
 			case "*":
-				//atencao
-				return "mult $a0 $t1 $a0";
+				//resultado 32bits
+				result.add("mult $t1 $a0");
+				result.add("mflo $a0");
+				break;
 			case "/":
-				//atencao
-				return "div $a0 $t1 $a0";
-			default:
-				return null;
+				result.add("div $a0 $t1 $a0");
+				break;
 		}
+		return result;
 	}
 
 	@Override
@@ -82,7 +86,7 @@ public class EClassOparit extends EClass{
 		result.add("addiu $sp $sp -4");
 		result.addAll(e2.generateCode());
 		result.add("lw $t1 4($sp)");
-		result.add(this.generateOperationInstruction());
+		result.addAll(this.generateOperationInstruction());
 		result.add("addiu $sp $sp 4");
 		return result;
 	}

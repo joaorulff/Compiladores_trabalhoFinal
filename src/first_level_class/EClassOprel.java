@@ -66,6 +66,25 @@ public class EClassOprel extends EClass{
 	public ID getResult() {
 		return null;
 	}
+	
+	private List<String> generateOperationInstruction(){
+		String op = this.oprel.operator.value;
+		List<String> result = new ArrayList<>();
+		switch(op) {
+			case "=":
+				result.add("beq $a0 $t1 true_branch");
+				break;
+			case ">":
+				result.add("sgt $t1 $t1 $a0");
+				result.add("beq $t1 1 true_branch");
+				break;
+			case "<":
+				result.add("slt $t1 $t1 $a0");
+				result.add("beq $t1 1 true_branch");
+				break;
+		}
+		return result;
+	}
 
 	@Override
 	public List<String> generateCode() {
@@ -76,14 +95,13 @@ public class EClassOprel extends EClass{
 		result.addAll(e2.generateCode());
 		result.add("lw $t1 4($sp)");
 		result.add("addiu $sp $sp 4");
-		//beq (=)
-		result.add("beq $a0 $t1 true_branch");
+		result.addAll(generateOperationInstruction());
 		result.add("false_branch:");
 		result.addAll(e4.generateCode());
 		result.add("b end_if");
 		result.add("true_branch:");
 		result.addAll(e3.generateCode());
-		result.add("end_if");
+		result.add("end_if:");
 		return result;
 	}
 	
