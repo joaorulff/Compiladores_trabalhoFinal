@@ -1,4 +1,8 @@
-a = 2;
-b = 3;
-def mod(a,b) = mdc(a,b);
-def mdc(a,b) = a + b;
+    a = 312;
+    b = 111;
+    def mdc(a,b) =
+        if mod(a,b) = 0 then b
+        else mdc(b,mod(a,b));
+    def mod(a,b) =
+        if a < b then a
+        else mod(a-b,b);

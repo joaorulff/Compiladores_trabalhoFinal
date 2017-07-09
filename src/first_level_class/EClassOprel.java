@@ -72,15 +72,15 @@ public class EClassOprel extends EClass{
 		List<String> result = new ArrayList<>();
 		switch(op) {
 			case "=":
-				result.add("beq $a0 $t1 true_branch");
+				result.add("beq $a0 $t1 true_branch"  + this.hashCode());
 				break;
 			case ">":
 				result.add("sgt $t1 $t1 $a0");
-				result.add("beq $t1 1 true_branch");
+				result.add("beq $t1 1 true_branch" + this.hashCode());
 				break;
 			case "<":
 				result.add("slt $t1 $t1 $a0");
-				result.add("beq $t1 1 true_branch");
+				result.add("beq $t1 1 true_branch"  + this.hashCode());
 				break;
 		}
 		return result;
@@ -96,12 +96,12 @@ public class EClassOprel extends EClass{
 		result.add("lw $t1 4($sp)");
 		result.add("addiu $sp $sp 4");
 		result.addAll(generateOperationInstruction());
-		result.add("false_branch:");
+		result.add("false_branch" + this.hashCode() + ":");
 		result.addAll(e4.generateCode());
-		result.add("b end_if");
-		result.add("true_branch:");
+		result.add("b end_if" + this.hashCode());
+		result.add("true_branch" + this.hashCode() + ":");
 		result.addAll(e3.generateCode());
-		result.add("end_if:");
+		result.add("end_if" + this.hashCode() + ":");
 		return result;
 	}
 	
