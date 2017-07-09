@@ -58,10 +58,10 @@ public class PClassAssign extends PClass {
 
 	@Override
 	public List<String> generateCode() {
-		String nextRegister = CodeGenerator.getNextRegister();
-		CodeGenerator.insertNewUsedRegister(this.id, nextRegister, this.integer);
-		System.out.println("\t li " + nextRegister + " " + this.integer);
-		return this.pclass.generateCode();
+		List<String> result = new ArrayList<>();
+		result.add("li $a0 " + this.integer);
+		result.addAll(this.pclass.generateCode());
+		return result;
 	}
 	
 }

@@ -18,7 +18,6 @@ public class EClassSingleInt extends EClass{
 		this.integer = Integer.parseInt(integer.value);
 	}
 
-
 	@Override
 	public int numberOfFunctionCalls() {
 		return 0;
@@ -26,14 +25,12 @@ public class EClassSingleInt extends EClass{
 
 	@Override
 	public ArrayList<FunctionCall> getFunctionCalls() {
-		ArrayList<FunctionCall> functionCalls = new ArrayList<>();
-		return functionCalls;
+		return new ArrayList<FunctionCall>();
 	}
 
 	@Override
 	public ArrayList<ID> getAllUsedIdentifiers() {
-		ArrayList<ID> usedIds = new ArrayList<>();
-		return usedIds;
+		return new ArrayList<ID>();
 	}
 	
 	@Override
@@ -41,16 +38,15 @@ public class EClassSingleInt extends EClass{
 		System.out.println(this.integer);
 	}
 
-
 	@Override
 	public ID getResult() {
 		return null;
 	}
 
-
 	@Override
 	public List<String> generateCode() {
 		List<String> result = new ArrayList<>();
+		System.out.println("ECLASS INT: " + this.getIndex());
 		result.add("li $a0 " + this.integer);
 		return result;
 	}

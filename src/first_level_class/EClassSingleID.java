@@ -28,7 +28,7 @@ public class EClassSingleID extends EClass {
 		ArrayList<FunctionCall> functionCalls = new ArrayList<>();
 		return functionCalls;
 	}
-
+	
 	@Override
 	public ArrayList<ID> getAllUsedIdentifiers() {
 		ID thisID = new ID(this.id);
@@ -53,8 +53,9 @@ public class EClassSingleID extends EClass {
 
 	@Override
 	public List<String> generateCode() {
-		// TODO Auto-generated method stub
-		return null;
+		List<String> result = new ArrayList<>();
+		result.add("lw $a0 " + 4 * this.getIndex() + "($fp)");
+		return result;
 	}
 
 }

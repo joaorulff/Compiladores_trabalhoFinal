@@ -11,6 +11,8 @@ import utils.FunctionDeclaration;
 
 public class DClassInstance extends DClass {
 	
+	////Corresponding rule: D ::= DEF ID:id OPEN ARGS:args CLOSE EQUAL E:e ENDSTMT 
+	
 	public String id;
 	public ArgsClass args;
 	public EClass scope;

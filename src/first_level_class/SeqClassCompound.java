@@ -18,9 +18,23 @@ public class SeqClassCompound extends SeqClass{
 		this.seq = seq;
 		this.e = e;
 	}
+	
+	@Override
+	public ArrayList<EClass> getAllExpressions(){
+		this.e.setIndex(this.getIndex());
+		this.seq.setIndex(this.getIndex() + 1);
+		ArrayList<EClass> thisIds = this.e.getAllUsedExpressions();
+		ArrayList<EClass> seqIds = this.seq.getAllExpressions();
+		
+		thisIds.addAll(seqIds);
+		
+		return thisIds;
+	}
 
 	@Override
 	public ArrayList<ID> getAllSeqIds() {
+		this.e.setIndex(this.getIndex());
+		this.seq.setIndex(this.getIndex() + 1);
 		ArrayList<ID> thisIds = this.e.getAllUsedIdentifiers();
 		ArrayList<ID> seqIds = this.seq.getAllSeqIds();
 		

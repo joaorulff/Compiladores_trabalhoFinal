@@ -16,10 +16,8 @@ public class EClassFunc extends EClass{
 	public String id;
 	
 	public EClassFunc(Token id, SeqClass seq) {
-		
 		this.id = id.value;
 		this.seq = seq;
-		
 	}
 	
 	@Override
@@ -29,7 +27,7 @@ public class EClassFunc extends EClass{
 
 	@Override
 	public ArrayList<FunctionCall> getFunctionCalls() {
-		
+		this.seq.setIndex(0);
 		ArrayList<ID> params = this.seq.getAllSeqIds();
 		FunctionCall functionCall = new FunctionCall(this.id, params, this.seq);
 		
@@ -41,9 +39,8 @@ public class EClassFunc extends EClass{
 
 	@Override
 	public ArrayList<ID> getAllUsedIdentifiers() {
-		
+		this.seq.setIndex(0);
 		ArrayList<ID> usedIds = this.seq.getAllSeqIds();
-		
 		return usedIds;
 	}
 
@@ -62,7 +59,14 @@ public class EClassFunc extends EClass{
 	@Override
 	public List<String> generateCode() {
 		// TODO Auto-generated method stub
-		return null;
+		List<String> result = new ArrayList<>();
+		
+		result.add("sw $fp 0($sp)");
+		result.add("addiu $sp $sp -4");
+		
+		result.add("jal "+ this.id +"_entry");
+	
+		return result;
 	}
 	
 	

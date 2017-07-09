@@ -1,1 +1,2 @@
-def mod(a,b) = if 1 > 2 then 2 else 1;
+def mod(a,b) = mdc(1, 2);
+def mdc(a,b) = 1;

@@ -19,6 +19,7 @@ public class SeqClassSingle extends SeqClass{
 	
 	@Override
 	public ArrayList<ID> getAllSeqIds() {
+		this.e.setIndex(this.getIndex());
 		return this.e.getAllUsedIdentifiers();
 	}
 
@@ -35,6 +36,12 @@ public class SeqClassSingle extends SeqClass{
 	@Override
 	public List<String> generateCode() {
 		return e.generateCode();
+	}
+
+	@Override
+	public ArrayList<EClass> getAllExpressions() {
+		this.e.setIndex(this.getIndex());
+		return this.e.getAllUsedExpressions();
 	}
 
 }

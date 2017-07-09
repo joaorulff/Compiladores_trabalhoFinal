@@ -12,7 +12,6 @@ public class FunctionCall {
 	public SeqClass seqOfParams;
 	
 	public FunctionCall(String id, ArrayList<ID> args, SeqClass seq){
-		
 		this.id = id;
 		this.args = args;
 		this.seqOfParams = seq;
