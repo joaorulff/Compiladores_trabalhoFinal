@@ -3,11 +3,14 @@ package first_level_class;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.text.StyledEditorKit.ForegroundAction;
+
 import compilador.Token;
 import second_level_class.ArgsClass;
 import second_level_class.DClass;
 import second_level_class.EClass;
 import utils.FunctionDeclaration;
+import utils.ID;
 
 public class DClassInstance extends DClass {
 	
@@ -47,6 +50,19 @@ public class DClassInstance extends DClass {
 		result.add("move $fp $sp");
 		result.add("sw $ra 0($sp)");
 		result.add("addiu $sp $sp -4");
+
+		ArrayList<ID> args = this.args.getArgs();
+		System.out.println("---------------------------------------------");
+		ArrayList<ID> usedIDs = this.scope.getAllUsedIdentifiers();
+		for (ID id : usedIDs) {
+			
+			for (ID arg : args) {
+				if(id.id.equals(arg.id)){
+					id.scopeParent.setIndex((args.indexOf(arg)) + 1);
+					
+				}
+			}
+		}
 		
 		result.addAll(this.scope.generateCode());
 		

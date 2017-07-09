@@ -45,5 +45,11 @@ public class PClassDef extends PClass{
 	public List<String> generateCode() {
 		return this.i.generateCode();
 	}
+
+	@Override
+	public void fillIndexes() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

@@ -62,5 +62,11 @@ public class PClassAssign extends PClass {
 		result.addAll(this.pclass.generateCode());
 		return result;
 	}
+
+	@Override
+	public void fillIndexes() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

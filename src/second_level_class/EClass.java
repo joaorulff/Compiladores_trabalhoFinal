@@ -30,4 +30,5 @@ public abstract class EClass extends Node{
 	public abstract ArrayList<ID> getAllUsedIdentifiers();
 	public abstract ID getResult();
 	public abstract void printType();
+	//public abstract void fillIndex(int a);
 }

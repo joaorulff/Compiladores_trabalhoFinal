@@ -31,7 +31,7 @@ public class EClassSingleID extends EClass {
 	
 	@Override
 	public ArrayList<ID> getAllUsedIdentifiers() {
-		ID thisID = new ID(this.id);
+		ID thisID = new ID(this.id, this);
 		
 		ArrayList<ID> usedIds = new ArrayList<>();
 		usedIds.add(thisID);

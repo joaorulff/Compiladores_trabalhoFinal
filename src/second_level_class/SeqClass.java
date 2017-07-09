@@ -21,4 +21,5 @@ public abstract class SeqClass extends Node {
 	public abstract ArrayList<EClass> getAllExpressions();
 	public abstract int numberOfParameters();
 	public abstract ArrayList<EClass> getAllScopes();
+	//public abstract void fillIndex();
 }

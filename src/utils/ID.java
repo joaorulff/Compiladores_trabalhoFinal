@@ -1,9 +1,12 @@
 package utils;
 
+import second_level_class.EClass;
+
 public class ID {
 	
 	public String id;
 	public Integer value = null;
+	public EClass scopeParent;
 	
 	public ID(String id, int value){
 		this.id = id;
@@ -18,4 +21,8 @@ public class ID {
 		this.value = value;
 	}
 	
+	public ID(String id, EClass parent){
+		this.id = id;
+		this.scopeParent = parent;
+	}
 }

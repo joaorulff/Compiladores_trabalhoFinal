@@ -23,8 +23,8 @@ public class CodeGenerator {
 		List<String> commands = new ArrayList<>();
 		commands.add("main:");
 		String firstFunction = program.globalFunctionsDeclared().get(0).name;
-		commands.add("jal " + firstFunction + "_entry");
-//		commands.addAll(generateInitialCode());
+//		commands.add("jal " + firstFunction + "_entry");
+		commands.addAll(generateInitialCode());
 		commands.addAll(generatePrintCode());
 		commands.addAll(generateExitCode());
 		commands.addAll(program.generateCode());

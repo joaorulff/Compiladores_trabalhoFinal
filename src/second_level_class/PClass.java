@@ -12,5 +12,6 @@ public abstract class PClass extends Node{
 	public abstract int numberOfGlobalVariablesDeclared();
 	public abstract ArrayList<ID> globalIDsDeclared();
 	public abstract ArrayList<FunctionDeclaration> globalFunctionsDeclared();
+	public abstract void fillIndexes();
 	
 }

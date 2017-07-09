@@ -53,4 +53,11 @@ public class SeqClassSingle extends SeqClass{
 		
 	}
 
+//	@Override
+//	public void fillIndex() {
+//		this.e.fillIndex(1);
+//	}
+//	
+	
+
 }

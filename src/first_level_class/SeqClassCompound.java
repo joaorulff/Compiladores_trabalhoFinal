@@ -70,4 +70,10 @@ public class SeqClassCompound extends SeqClass{
 		return seqScopes;
 		
 	}
+
+//	@Override
+//	public void fillIndex() {
+////		this.e.fillIndex(a);
+//		
+//	}
 }
