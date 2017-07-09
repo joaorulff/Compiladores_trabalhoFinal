@@ -18,11 +18,6 @@ public class IClassCompound extends IClass{
 		this.d = d;
 		this.i = i;
 	}
-	
-	public void printTree() {
-		System.out.println("-------------");
-		d.printTree();  i.printTree();
-	}
 
 	@Override
 	public ArrayList<FunctionDeclaration> getGlobalFunctions() {

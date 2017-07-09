@@ -3,8 +3,6 @@ package first_level_class;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.text.StyledEditorKit.ForegroundAction;
-
 import compilador.Token;
 import second_level_class.ArgsClass;
 import second_level_class.DClass;
@@ -29,16 +27,6 @@ public class DClassInstance extends DClass {
 	}
 	
 	@Override
-	public void printTree() {
-		System.out.println();
-		System.out.print("DEF: " + this.id + "OPEN ARGS: " );
-		this.args.printTree();
-		System.out.print("CLOSE EQUAL E: ");
-		this.scope.printTree();
-		System.out.println("ENDSTMT");
-	}
-
-	@Override
 	public FunctionDeclaration getFunction() {
 		return new FunctionDeclaration(this.id, this.scope, this.args.getArgs());
 	}
@@ -52,20 +40,16 @@ public class DClassInstance extends DClass {
 		result.add("addiu $sp $sp -4");
 
 		ArrayList<ID> args = this.args.getArgs();
-		System.out.println("---------------------------------------------");
 		ArrayList<ID> usedIDs = this.scope.getAllUsedIdentifiers();
 		for (ID id : usedIDs) {
-			
 			for (ID arg : args) {
 				if(id.id.equals(arg.id)){
 					id.scopeParent.setIndex((args.indexOf(arg)) + 1);
-					
 				}
 			}
 		}
 		
 		result.addAll(this.scope.generateCode());
-		
 		result.add("lw $ra 4($sp)");
 		result.add("addiu $sp $sp " + this.z);
 		result.add("lw $fp 0($sp)");

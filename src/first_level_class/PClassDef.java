@@ -24,13 +24,6 @@ public class PClassDef extends PClass{
 	}
 
 	@Override
-	public void printTree() {
-		System.out.println();
-		System.out.print("I: ");
-		this.i.printTree();
-	}
-
-	@Override
 	public ArrayList<ID> globalIDsDeclared() {
 		return null;
 	}
@@ -46,10 +39,4 @@ public class PClassDef extends PClass{
 		return this.i.generateCode();
 	}
 
-	@Override
-	public void fillIndexes() {
-		// TODO Auto-generated method stub
-		
-	}
-	
 }

@@ -43,18 +43,6 @@ public class EClassOparit extends EClass{
 		}
 		return e1IDs;
 	}
-
-	@Override
-	public void printTree() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public ID getResult() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 	private List<String> generateOperationInstruction(){
 		String op = this.oparit.operator.value;
@@ -89,10 +77,6 @@ public class EClassOparit extends EClass{
 		result.addAll(this.generateOperationInstruction());
 		result.add("addiu $sp $sp 4");
 		return result;
-	}
-	
-	public void printType(){
-		System.out.println("EClassOparit");
 	}
 	
 }

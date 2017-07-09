@@ -2,7 +2,6 @@ package first_level_class;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import compilador.Token;
 import second_level_class.EClass;
@@ -45,20 +44,7 @@ public class EClassFunc extends EClass{
 	}
 
 	@Override
-	public void printTree() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public ID getResult() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public List<String> generateCode() {
-		// TODO Auto-generated method stub
 		List<String> result = new ArrayList<>();
 		
 		result.add("sw $fp 0($sp)");
@@ -75,11 +61,5 @@ public class EClassFunc extends EClass{
 	
 		return result;
 	}
-	
-	public void printType(){
-		System.out.println("EClassFunc");
-	}
-	
-	
 
 }

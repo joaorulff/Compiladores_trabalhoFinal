@@ -22,8 +22,6 @@ public class CodeGenerator {
 		program = currentProgram;
 		List<String> commands = new ArrayList<>();
 		commands.add("main:");
-		String firstFunction = program.globalFunctionsDeclared().get(0).name;
-//		commands.add("jal " + firstFunction + "_entry");
 		commands.addAll(generateInitialCode());
 		commands.addAll(generatePrintCode());
 		commands.addAll(generateExitCode());

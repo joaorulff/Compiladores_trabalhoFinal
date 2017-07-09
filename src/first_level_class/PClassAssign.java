@@ -3,7 +3,6 @@ package first_level_class;
 import java.util.ArrayList;
 import java.util.List;
 
-import codeGeneration.CodeGenerator;
 import compilador.Token;
 import second_level_class.PClass;
 import utils.FunctionDeclaration;
@@ -23,12 +22,6 @@ public class PClassAssign extends PClass {
 		this.pclass = p;
 	}
 	
-	public void printTree(){
-		System.out.println();
-		System.out.print( "ID:"+ this.id +" = " + " INTEGER: " + this.integer + " P: ");
-		this.pclass.printTree();
-	}
-
 	@Override
 	public int numberOfGlobalVariablesDeclared() {
 		return 1+this.pclass.numberOfGlobalVariablesDeclared();
@@ -63,10 +56,4 @@ public class PClassAssign extends PClass {
 		return result;
 	}
 
-	@Override
-	public void fillIndexes() {
-		// TODO Auto-generated method stub
-		
-	}
-	
 }

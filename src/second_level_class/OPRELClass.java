@@ -14,17 +14,8 @@ public class OPRELClass extends Node{
 		this.operator = operator;
 	}
 
-
-	@Override
-	public void printTree() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
 	@Override
 	public List<String> generateCode() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

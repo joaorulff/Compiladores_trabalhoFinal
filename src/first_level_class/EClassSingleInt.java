@@ -32,28 +32,13 @@ public class EClassSingleInt extends EClass{
 	public ArrayList<ID> getAllUsedIdentifiers() {
 		return new ArrayList<ID>();
 	}
-	
-	@Override
-	public void printTree() {
-		System.out.println(this.integer);
-	}
 
 	@Override
-	public ID getResult() {
-		return null;
-	}
-
-	@Override
-
 	public List<String> generateCode() {
 		List<String> result = new ArrayList<>();
 		result.add("li $a0 " + this.integer);
 		return result;
 
-	}
-	
-	public void printType(){
-		System.out.println("EClassSingleInt");
 	}
 
 }

@@ -45,35 +45,20 @@ public class SeqClassCompound extends SeqClass{
 	}
 
 	@Override
-	public void printTree() {
-		this.seq.printTree();
-		this.e.printTree();
-	}
-
-	@Override
 	public int numberOfParameters() {
 		return this.seq.numberOfParameters() + 1;
 	}
 
 	@Override
 	public List<String> generateCode() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	
 	public ArrayList<EClass> getAllScopes(){
-		
 		ArrayList<EClass> seqScopes = this.seq.getAllScopes();
-		
 		seqScopes.add(this.e);
-		
 		return seqScopes;
 		
 	}
 
-//	@Override
-//	public void fillIndex() {
-////		this.e.fillIndex(a);
-//		
-//	}
 }

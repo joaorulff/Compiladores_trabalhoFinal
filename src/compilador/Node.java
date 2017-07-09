@@ -13,5 +13,4 @@ public abstract class Node {
 	
 	public abstract List<String> generateCode();
 	
-	public abstract void printTree();
 }

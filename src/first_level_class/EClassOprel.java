@@ -55,17 +55,6 @@ public class EClassOprel extends EClass{
 		
 		return e1Ids;
 	}
-
-	@Override
-	public void printTree() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public ID getResult() {
-		return null;
-	}
 	
 	private List<String> generateOperationInstruction(){
 		String op = this.oprel.operator.value;
@@ -103,10 +92,6 @@ public class EClassOprel extends EClass{
 		result.addAll(e3.generateCode());
 		result.add("end_if" + this.hashCode() + ":");
 		return result;
-	}
-	
-	public void printType(){
-		System.out.println("EClassOprel");
 	}
 	
 }

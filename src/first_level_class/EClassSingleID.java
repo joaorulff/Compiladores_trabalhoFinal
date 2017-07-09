@@ -40,28 +40,11 @@ public class EClassSingleID extends EClass {
 	}
 
 	@Override
-	public void printTree() {
-		System.out.println(this.id);
-	}
-
-
-	@Override
-	public ID getResult() {
-		return new ID(this.id);
-	}
-
-
-	@Override
-
 	public List<String> generateCode() {
 		List<String> result = new ArrayList<>();
 		result.add("lw $a0 " + 4 * this.getIndex() + "($fp)");
 		return result;
 
-	}
-	
-	public void printType(){
-		System.out.println("EClassSingleID");
 	}
 
 }

@@ -18,13 +18,6 @@ public class IClassSingle extends IClass{
 	}
 	
 	@Override
-	public void printTree() {
-		System.out.println("-------------");
-		d.printTree();
-		
-	}
-
-	@Override
 	public ArrayList<FunctionDeclaration> getGlobalFunctions() {
 		ArrayList<FunctionDeclaration> thisFunction = new ArrayList<>();
 		thisFunction.add(this.d.getFunction());

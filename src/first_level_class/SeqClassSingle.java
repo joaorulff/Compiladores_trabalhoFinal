@@ -24,11 +24,6 @@ public class SeqClassSingle extends SeqClass{
 	}
 
 	@Override
-	public void printTree() {
-		this.e.printTree();
-	}
-
-	@Override
 	public int numberOfParameters() {
 		return 1;
 	}
@@ -52,12 +47,5 @@ public class SeqClassSingle extends SeqClass{
 		return thisScope;
 		
 	}
-
-//	@Override
-//	public void fillIndex() {
-//		this.e.fillIndex(1);
-//	}
-//	
-	
 
 }

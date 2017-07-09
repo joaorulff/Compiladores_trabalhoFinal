@@ -18,27 +18,15 @@ public class ArgsClassSingle extends ArgsClass {
 	}
 
 	@Override
-	public void printTree() {
-		
-		System.out.println(this.id);
-		
-	}
-
-	@Override
 	public ArrayList<ID> getArgs() {
-		
 		ID thisID = new ID(this.id);
-		
 		ArrayList<ID> args = new ArrayList<>();
 		args.add(thisID);
-		
-		
 		return args;
 	}
 
 	@Override
 	public List<String> generateCode() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
