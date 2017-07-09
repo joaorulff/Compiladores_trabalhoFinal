@@ -21,11 +21,14 @@ public class CodeGenerator {
 	public static List<String> generateCode(PClass currentProgram){
 		program = currentProgram;
 		List<String> commands = new ArrayList<>();
-		commands.addAll(generateInitialCode());
+		commands.add("main:");
+		String firstFunction = program.globalFunctionsDeclared().get(0).name;
+		commands.add("jal " + firstFunction + "_entry");
+//		commands.addAll(generateInitialCode());
+		commands.addAll(generatePrintCode());
+		commands.addAll(generateExitCode());
 		commands.addAll(program.generateCode());
-		commands.add("li $v0, 1");
-		commands.add("add $a0, $a0, $zero");
-		commands.add("syscall");
+		
 		return commands;
 	}
 	
@@ -46,19 +49,32 @@ public class CodeGenerator {
 		}
 	}
 	
+	public static ArrayList<String> generatePrintCode(){
+		ArrayList<String> result = new ArrayList<String>();
+		result.add("li $v0, 1");
+		result.add("add $a0, $a0, $zero");
+		result.add("syscall");
+		return result;
+	}
+	
+	public static ArrayList<String> generateExitCode(){
+		ArrayList<String> result = new ArrayList<String>();
+		result.add("li $v0, 10");
+		result.add("syscall");
+		return result;
+	}
+	
 	public static ArrayList<String> generateInitialCode(){
 		ArrayList<String> commands = new ArrayList<>();
 		
 		ArrayList<ID> globalIDs = program.globalIDsDeclared();
 		commands.add("sw $fp 0($sp)");
 		commands.add("addiu $sp $sp -4");
-		for(int i = globalIDs.size()-1; i>=0; i--){
-		
-			commands.add("li $a0 "+globalIDs.get(i).value);
+		for(int i = globalIDs.size() - 1; i >= 0; i--){
+			commands.add("li $a0 " + globalIDs.get(i).value);
 			commands.add("sw $a0 0($sp)");
 			commands.add("addiu $sp $sp -4");
 		}
-		
 		String firstFunction = program.globalFunctionsDeclared().get(0).name;
 		commands.add("jal " + firstFunction + "_entry");
 		

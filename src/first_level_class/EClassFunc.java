@@ -64,11 +64,10 @@ public class EClassFunc extends EClass{
 		result.add("sw $fp 0($sp)");
 		result.add("addiu $sp $sp -4");
 		ArrayList<EClass> scopes = this.seq.getAllScopes();
-
-		for(int i = scopes.size()-1; i >=0; i--){
+		for(int i = scopes.size() - 1; i >= 0; i--){
 			EClass scope = scopes.get(i);
 			scope.generateCode();
-			result.add("sw $fp 0($sp)");
+			result.add("sw $a0 0($sp)");
 			result.add("addiu $sp $sp -4");
 		}
 		
