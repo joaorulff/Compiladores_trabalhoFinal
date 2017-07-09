@@ -1,6 +1,7 @@
 package first_level_class;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import compilador.Token;
 import second_level_class.EClass;
@@ -9,12 +10,13 @@ import utils.ID;
 
 public class EClassSingleInt extends EClass{
 	
+	////Corresponding rule: E ::= INTEGER
+	
 	public Integer integer;
 	
 	public EClassSingleInt(Token integer) {
 		this.integer = Integer.parseInt(integer.value);
 	}
-
 
 	@Override
 	public int numberOfFunctionCalls() {
@@ -23,14 +25,12 @@ public class EClassSingleInt extends EClass{
 
 	@Override
 	public ArrayList<FunctionCall> getFunctionCalls() {
-		ArrayList<FunctionCall> functionCalls = new ArrayList<>();
-		return functionCalls;
+		return new ArrayList<FunctionCall>();
 	}
 
 	@Override
 	public ArrayList<ID> getAllUsedIdentifiers() {
-		ArrayList<ID> usedIds = new ArrayList<>();
-		return usedIds;
+		return new ArrayList<ID>();
 	}
 	
 	@Override
@@ -38,16 +38,22 @@ public class EClassSingleInt extends EClass{
 		System.out.println(this.integer);
 	}
 
-
 	@Override
 	public ID getResult() {
 		return null;
 	}
 
-
 	@Override
-	public void generateCode() {
-		System.out.println("li $ao " + this.integer.toString());
+
+	public List<String> generateCode() {
+		List<String> result = new ArrayList<>();
+		result.add("li $a0 " + this.integer);
+		return result;
+
+	}
+	
+	public void printType(){
+		System.out.println("EClassSingleInt");
 	}
 
 }

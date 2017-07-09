@@ -5,7 +5,6 @@ public class ID {
 	public String id;
 	public Integer value = null;
 	
-	
 	public ID(String id, int value){
 		this.id = id;
 		this.value = value;

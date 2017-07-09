@@ -1,7 +1,7 @@
 package first_level_class;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 import compilador.Token;
 import second_level_class.ArgsClass;
@@ -20,10 +20,8 @@ public class ArgsClassCompound extends ArgsClass{
 
 	@Override
 	public void printTree() {
-		
 		System.out.print(this.id);
 		this.args.printTree();
-		
 	}
 
 	@Override
@@ -45,9 +43,9 @@ public class ArgsClassCompound extends ArgsClass{
 	}
 
 	@Override
-	public void generateCode() {
+	public List<String> generateCode() {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
 }

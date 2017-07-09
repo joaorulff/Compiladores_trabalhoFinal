@@ -1,6 +1,7 @@
 package first_level_class;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import compilador.Token;
 import second_level_class.EClass;
@@ -8,13 +9,14 @@ import utils.FunctionCall;
 import utils.ID;
 
 public class EClassSingleID extends EClass {
-
+	
+	////Corresponding rule: E ::= ID
+	
 	public String id;
 	
 	public EClassSingleID(Token id) {
 		this.id = id.value;
 	}
-	
 	
 	@Override
 	public int numberOfFunctionCalls() {
@@ -26,10 +28,9 @@ public class EClassSingleID extends EClass {
 		ArrayList<FunctionCall> functionCalls = new ArrayList<>();
 		return functionCalls;
 	}
-
+	
 	@Override
 	public ArrayList<ID> getAllUsedIdentifiers() {
-		
 		ID thisID = new ID(this.id);
 		
 		ArrayList<ID> usedIds = new ArrayList<>();
@@ -41,7 +42,6 @@ public class EClassSingleID extends EClass {
 	@Override
 	public void printTree() {
 		System.out.println(this.id);
-		
 	}
 
 
@@ -52,12 +52,16 @@ public class EClassSingleID extends EClass {
 
 
 	@Override
-	public void generateCode() {
-		System.out.println("li $ao " + "ZZZZZZ");
+
+	public List<String> generateCode() {
+		List<String> result = new ArrayList<>();
+		result.add("lw $a0 " + 4 * this.getIndex() + "($fp)");
+		return result;
+
 	}
 	
-	
-	
-	
+	public void printType(){
+		System.out.println("EClassSingleID");
+	}
 
 }

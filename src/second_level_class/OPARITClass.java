@@ -1,28 +1,30 @@
 package second_level_class;
 
+import java.util.List;
+
 import compilador.Node;
 import compilador.Token;
 
 public class OPARITClass extends Node {
 	
-	public Token sum;
+	public Token operator;
 
-	public OPARITClass(Token sum) {
+	public OPARITClass(Token operator) {
 		super();
-		this.sum = sum;
+		this.operator = operator;
 	}
 
 
 	@Override
 	public void printTree() {
 		// TODO Auto-generated method stub
-		
 	}
 
 
 	@Override
-	public void generateCode() {
+	public List<String> generateCode() {
 		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

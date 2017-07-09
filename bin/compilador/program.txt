@@ -1,5 +1,2 @@
-a = 312;
-b = 111;
-c = 414;
-def function1(a,b) = 5;
-def function2(c) = c;
+def mod(a,b) = mdc(1, a);
+def mdc(a,b) = 1;

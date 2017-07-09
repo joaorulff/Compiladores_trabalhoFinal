@@ -1,10 +1,9 @@
 package first_level_class;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
 
 import codeGeneration.CodeGenerator;
-import compilador.Node;
 import compilador.Token;
 import second_level_class.PClass;
 import utils.FunctionDeclaration;
@@ -18,32 +17,25 @@ public class PClassAssign extends PClass {
 	public int integer;
 	public PClass pclass;
 	
-	
 	public PClassAssign(Token id, Token integer, PClass p) {
 		this.id = id.value;
 		this.integer = Integer.parseInt(integer.value);
 		this.pclass = p;
-		
 	}
 	
 	public void printTree(){
-		
 		System.out.println();
 		System.out.print( "ID:"+ this.id +" = " + " INTEGER: " + this.integer + " P: ");
 		this.pclass.printTree();
-		
 	}
 
 	@Override
 	public int numberOfGlobalVariablesDeclared() {
-		
 		return 1+this.pclass.numberOfGlobalVariablesDeclared();
-		
 	}
 
 	@Override
 	public ArrayList<ID> globalIDsDeclared() {
-		
 		ArrayList<ID> temp = this.pclass.globalIDsDeclared();
 		ArrayList<ID> result = new ArrayList<>();
 		
@@ -60,22 +52,16 @@ public class PClassAssign extends PClass {
 
 	@Override
 	public ArrayList<FunctionDeclaration> globalFunctionsDeclared() {
-		
 		ArrayList<FunctionDeclaration> functions = this.pclass.globalFunctionsDeclared();
 		return functions;
 	}
 
 	@Override
-	public void generateCode() {
-		
-		String nextRegister = CodeGenerator.getNextRegister();
-		CodeGenerator.insertNewUsedRegister(this.id, nextRegister, this.integer);
-		System.out.println("\t li " + nextRegister + " " + this.integer);
-		this.pclass.generateCode();
-		
+	public List<String> generateCode() {
+		List<String> result = new ArrayList<>();
+		result.add("li $a0 " + this.integer);
+		result.addAll(this.pclass.generateCode());
+		return result;
 	}
-	
-	
-	
 	
 }

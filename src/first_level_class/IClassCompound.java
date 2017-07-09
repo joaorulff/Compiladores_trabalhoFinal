@@ -1,7 +1,7 @@
 package first_level_class;
 
 import java.util.ArrayList;
-
+import java.util.List;
 
 import second_level_class.DClass;
 import second_level_class.IClass;
@@ -15,24 +15,17 @@ public class IClassCompound extends IClass{
 	public IClass i;
 	
 	public IClassCompound(DClass d, IClass i){
-		
 		this.d = d;
 		this.i = i;
-		
 	}
-	
 	
 	public void printTree() {
-		
 		System.out.println("-------------");
 		d.printTree();  i.printTree();
-		
 	}
-
 
 	@Override
 	public ArrayList<FunctionDeclaration> getGlobalFunctions() {
-		
 		ArrayList<FunctionDeclaration> thisFunction = new ArrayList<>();
 		thisFunction.add(this.d.getFunction());
 		
@@ -42,16 +35,14 @@ public class IClassCompound extends IClass{
 			thisFunction.addAll(temp);
 		}
 		
-		
 		return thisFunction;
 	}
 
-
 	@Override
-	public void generateCode() {
-		this.d.generateCode();
-		this.i.generateCode();
+	public List<String> generateCode() {
+		List<String> result = new ArrayList<>(this.d.generateCode());
+		result.addAll(this.i.generateCode());
+		return result;
 	}
-	
 	
 }

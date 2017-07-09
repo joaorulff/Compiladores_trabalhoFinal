@@ -1,15 +1,17 @@
 package second_level_class;
 
+import java.util.List;
+
 import compilador.Node;
 import compilador.Token;
 
 public class OPRELClass extends Node{
 	
-	public Token equal;
+	public Token operator;
 
-	public OPRELClass(Token equal) {
+	public OPRELClass(Token operator) {
 		super();
-		this.equal = equal;
+		this.operator = operator;
 	}
 
 
@@ -21,8 +23,9 @@ public class OPRELClass extends Node{
 
 
 	@Override
-	public void generateCode() {
+	public List<String> generateCode() {
 		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
